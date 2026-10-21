@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/jpg" href="life logo.jpg">
+  <title>Blog & Community Outreach | Life Saving Medical Center</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; }
+    #mobileMenu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      transition: right 0.35s ease-in-out;
+      z-index: 100;
+    }
+    #mobileMenu.open { right: 0; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navigation -->
+  <nav class="bg-white/95 backdrop-blur-md shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-11 h-11 bg-teal-700 rounded-full flex items-center justify-center overflow-hidden shrink-0">
+          <img src="life logo.jpg" alt="LSMC Logo" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <h1 class="text-lg md:text-xl font-bold text-teal-700 leading-none">Life Saving</h1>
+          <p class="text-xs text-gray-600">Medical Center</p>
+        </div>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-4 xl:gap-6 font-medium text-sm">
+        <a href="index.html" class="hover:text-teal-700 transition-colors">Home</a>
+        <a href="index.html#about" class="hover:text-teal-700 transition-colors">About Us</a>
+        <a href="index.html#services" class="hover:text-teal-700 transition-colors">Services</a>
+        <a href="insurance.html" class="hover:text-teal-700 transition-colors">Insurance Programme</a>
+        <a href="blog.html" class="text-teal-700 font-bold">Blog</a>
+        <a href="donate.html" class="hover:text-teal-700 transition-colors">Donate</a>
+        <a href="index.html#online" class="hover:text-teal-700 transition-colors">Online Consultation</a>
+        <a href="index.html#contact" class="hover:text-teal-700 transition-colors">Contact</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/256782543038" target="_blank" class="bg-teal-600/90 backdrop-blur-md hover:bg-teal-700 text-white px-4 py-2.5 rounded-full flex items-center gap-2 text-xs md:text-sm font-medium transition shadow-md">
+          <i class="fab fa-whatsapp text-lg"></i>
+          <span class="hidden sm:inline">WhatsApp Us</span>
+        </a>
+        <button onclick="toggleMobileMenu()" class="lg:hidden text-teal-700 text-2xl p-2 focus:outline-none">
+          <i id="menuIcon" class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Right-Hand Side Semi-Transparent Mobile Menu Drawer -->
+    <div id="mobileMenu" class="lg:hidden bg-white/90 backdrop-blur-xl border-l shadow-2xl p-6 flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-center mb-8 pb-4 border-b">
+          <span class="font-bold text-teal-800 text-lg">Navigation Menu</span>
+          <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+        </div>
+        <div class="flex flex-col gap-4 font-medium text-gray-700 text-base">
+          <a href="index.html" onclick="toggleMobileMenu()" class="hover:text-teal-700">Home</a>
+          <a href="index.html#about" onclick="toggleMobileMenu()" class="hover:text-teal-700">About Us</a>
+          <a href="index.html#services" onclick="toggleMobileMenu()" class="hover:text-teal-700">Services</a>
+          <a href="insurance.html" onclick="toggleMobileMenu()" class="hover:text-teal-700">Insurance Programme</a>
+          <a href="blog.html" onclick="toggleMobileMenu()" class="text-teal-700 font-bold">Blog</a>
+          <a href="donate.html" onclick="toggleMobileMenu()" class="hover:text-teal-700">Donate</a>
+          <a href="index.html#online" onclick="toggleMobileMenu()" class="hover:text-teal-700">Online Consultation</a>
+          <a href="index.html#contact" onclick="toggleMobileMenu()" class="hover:text-teal-700">Contact</a>
+        </div>
+      </div>
+      <div class="pt-4 border-t text-xs text-gray-500 text-center">
+        Life Saving Medical Center • 24/7 Care
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <section class="bg-teal-800 text-white py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-3xl md:text-5xl font-bold mb-4">Our Community Blog & Impact</h1>
+      <p class="text-teal-100 text-base md:text-lg max-w-2xl mx-auto">Discover how Life Saving Medical Center is actively reaching out, providing care, and making a real difference in Wakiso.</p>
+    </div>
+  </section>
+
+  <!-- Community Activities Grid -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-teal-900 mb-2">Recent Community Activities</h2>
+        <p class="text-gray-600">Going beyond clinical walls to build a healthier society.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-3xl shadow-sm border border-teal-100 overflow-hidden flex flex-col md:flex-row">
+          <div class="md:w-1/2 h-56 md:h-auto bg-teal-100 flex items-center justify-center text-teal-700 text-6xl">
+            <i class="fas fa-baby-carriage"></i>
+          </div>
+          <div class="p-6 md:w-1/2 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-teal-600 uppercase tracking-wider">Maternal Follow-up</span>
+              <h3 class="text-xl font-bold text-gray-900 mt-1 mb-3">Visiting Mothers Post-Delivery</h3>
+              <p class="text-gray-600 text-sm leading-relaxed mb-4">Our nursing and midwife team conducts follow-up home visits for mothers who gave birth at our facility to monitor postpartum recovery, offer newborn checks, and support breastfeeding success.</p>
+            </div>
+            <p class="text-xs text-gray-400">Regular Ongoing Activity</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl shadow-sm border border-teal-100 overflow-hidden flex flex-col md:flex-row">
+          <div class="md:w-1/2 h-56 md:h-auto bg-teal-100 flex items-center justify-center text-teal-700 text-6xl">
+            <i class="fas fa-syringe"></i>
+          </div>
+          <div class="p-6 md:w-1/2 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-teal-600 uppercase tracking-wider">Child Immunization</span>
+              <h3 class="text-xl font-bold text-gray-900 mt-1 mb-3">Vaccinating Young Babies</h3>
+              <p class="text-gray-600 text-sm leading-relaxed mb-4">Protecting the next generation through routine and free infant vaccination drives. We maintain full cold-chain safety to ensure every child gets key protection on schedule.</p>
+            </div>
+            <p class="text-xs text-gray-400">Weekly Immunization Drives</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW GALLERY SECTION (Featuring image tags, video tags, and articles) -->
+  <section class="py-16 bg-teal-50 border-t border-teal-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <span class="text-teal-700 font-bold text-sm tracking-wider uppercase">Visual & Written Archive</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-teal-900 mt-1 mb-2">Life Saving Gallery & Articles</h2>
+        <p class="text-gray-600 text-sm md:text-base">Explore photographs, recorded video highlights, and published stories detailing our medical outreach.</p>
+      </div>
+
+      <!-- Gallery Grid: Images -->
+      <div class="mb-12">
+        <h3 class="text-xl font-bold text-teal-800 mb-6 flex items-center gap-2">
+          <i class="fas fa-images text-teal-600"></i> Photo Gallery Highlights
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-teal-100">
+            <img src="14512.jpg" alt="Health Camp Screenings under trees in Wakiso" class="w-full h-52 object-cover hover:scale-105 transition-transform duration-300">
+            <div class="p-4 text-sm text-gray-700 font-medium">Community health camp student screenings</div>
+          </div>
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-teal-100">
+            <img src="14514.jpg" alt="Students in classrooms during health check" class="w-full h-52 object-cover hover:scale-105 transition-transform duration-300">
+            <div class="p-4 text-sm text-gray-700 font-medium">Classroom health consultation sessions</div>
+          </div>
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-teal-100">
+            <img src="14468.jpg" alt="Children holding clinical forms" class="w-full h-52 object-cover hover:scale-105 transition-transform duration-300">
+            <div class="p-4 text-sm text-gray-700 font-medium">Issuing health assessment feedback forms</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Grid: Videos -->
+      <div class="mb-12">
+        <h3 class="text-xl font-bold text-teal-800 mb-6 flex items-center gap-2">
+          <i class="fas fa-video text-teal-600"></i> Video Highlights
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-2xl p-4 shadow-sm border border-teal-100">
+            <div class="rounded-xl overflow-hidden bg-black aspect-video flex items-center justify-center">
+              <!-- Video Tag Example -->
+              <video controls class="w-full h-full object-cover">
+                <source src="videos/outreach-highlight.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <p class="mt-3 text-sm font-semibold text-gray-800">School Outreach Summary Feature</p>
+            <p class="text-xs text-gray-500">A short documentary reel capturing our team examining students at partner schools.</p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-4 shadow-sm border border-teal-100">
+            <div class="rounded-xl overflow-hidden bg-black aspect-video flex items-center justify-center">
+              <video controls class="w-full h-full object-cover">
+                <source src="videos/community-care.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <p class="mt-3 text-sm font-semibold text-gray-800">24/7 Emergency Response Tour</p>
+            <p class="text-xs text-gray-550 text-gray-500">Inside look at our emergency triage unit and laboratory facilities in Wakiso.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Grid: Articles Written About Life Saving Medical Center -->
+      <div>
+        <h3 class="text-xl font-bold text-teal-800 mb-6 flex items-center gap-2">
+          <i class="fas fa-newspaper text-teal-600"></i> Published Articles & Stories
+        </h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-teal-100 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-teal-600 uppercase">Local Press Feature</span>
+              <h4 class="text-lg font-bold text-gray-900 mt-1 mb-2">Bridging Healthcare Gaps in Wakiso District</h4>
+              <p class="text-gray-600 text-sm leading-relaxed mb-4">An in-depth writeup detailing how Life Saving Medical Center and its micro-insurance model are transforming primary healthcare access for low-income families.</p>
+            </div>
+            <a href="#" class="text-teal-700 font-semibold text-sm hover:underline inline-flex items-center gap-1">Read Full Article <i class="fas fa-arrow-right text-xs"></i></a>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-teal-100 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-teal-600 uppercase">Community Spotlight</span>
+              <h4 class="text-lg font-bold text-gray-900 mt-1 mb-2">Empowering Schools Through Preventative Health Checks</h4>
+              <p class="text-gray-600 text-sm leading-relaxed mb-4">A published review highlighting our foundation's successful school outreaches in partner institutions like Buloba and Kisimbiri C/U Primary Schools.</p>
+            </div>
+            <a href="#" class="text-teal-700 font-semibold text-sm hover:underline inline-flex items-center gap-1">Read Full Article <i class="fas fa-arrow-right text-xs"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8 text-center text-sm">
+    <p>&copy; 2026 Life Saving Medical Center. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const icon = document.getElementById('menuIcon');
+      menu.classList.toggle('open');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    }
+  </script>
+</body>
+</html>

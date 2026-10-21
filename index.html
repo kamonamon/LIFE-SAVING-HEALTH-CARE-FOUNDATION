@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/jpg" href="life logo.jpg">
+  <title>Life Saving Healthcare Foundation | 24/7 Healthcare Wakiso</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; }
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('back.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .card { transition: all 0.3s ease; }
+    .card:hover { transform: translateY(-8px); }
+    .modal { transition: opacity 0.25s ease; }
+    body.modal-active { overflow: hidden; }
+    
+    /* Right-side sliding semi-transparent mobile drawer */
+    #mobileMenu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      transition: right 0.35s ease-in-out;
+      z-index: 100;
+    }
+    #mobileMenu.open {
+      right: 0;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Active Marquee Ticker Link to blog.html -->
+  <a href="blog.html" class="block bg-rose-600 hover:bg-rose-700 text-white py-2.5 px-4 text-xs md:text-sm font-semibold shadow-inner transition">
+    <div class="max-w-7xl mx-auto flex items-center justify-between overflow-hidden">
+      <div class="whitespace-nowrap animate-pulse flex items-center gap-3">
+        <span class="bg-white text-rose-700 px-2 py-0.5 rounded-full text-xs uppercase font-extrabold">Upcoming Event</span>
+        <span>🏥 FREE HEALTH CAMP AT LIFE SAVING MEDICAL CENTER! Ending on Nv29th — Tap here to check our blog & details!</span>
+      </div>
+      <div class="hidden md:flex items-center gap-2 pl-4 border-l border-rose-400/50 whitespace-nowrap">
+        <i class="fas fa-clock"></i>
+        <span id="marqueeTimer">Calculating...</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- Navigation Bar -->
+  <nav class="bg-white/95 backdrop-blur-md shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-11 h-11 bg-teal-700 rounded-full flex items-center justify-center overflow-hidden shrink-0">
+          <img src="life logo.jpg" alt="LSMC Logo" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <h1 class="text-lg md:text-xl font-bold text-teal-700 leading-none">LIFE SAVING </h1>
+          <p class="text-xs text-gray-800">HEALTH CARE FOUNDATION</p>
+        </div>
+      </a>
+      
+      <div class="hidden lg:flex items-center gap-4 xl:gap-6 font-medium text-sm">
+        <a href="index.html#home" class="text-teal-700 font-bold">Home</a>
+        <a href="index.html#about" class="hover:text-teal-700 transition-colors">About Us</a>
+        <a href="index.html#services" class="hover:text-teal-700 transition-colors">Services</a>
+        <a href="insurance.html" class="hover:text-teal-700 transition-colors">Insurance Programme</a>
+        <a href="blog.html" class="hover:text-teal-700 transition-colors">Blog</a>
+        <a href="donate.html" class="hover:text-teal-700 transition-colors">Donate</a>
+        <a href="index.html#online" class="hover:text-teal-700 transition-colors">Online Consultation</a>
+        <a href="index.html#contact" class="hover:text-teal-700 transition-colors">Contact</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <!-- Floating Semi-Transparent WhatsApp Button -->
+        <a href="https://wa.me/256782543038" target="_blank" class="bg-teal-600/90 backdrop-blur-md hover:bg-teal-700 text-white px-4 py-2.5 rounded-full flex items-center gap-2 text-xs md:text-sm font-medium transition shadow-md">
+          <i class="fab fa-whatsapp text-lg"></i>
+          <span class="hidden sm:inline">WhatsApp Us</span>
+        </a>
+        <button onclick="toggleMobileMenu()" class="lg:hidden text-teal-700 text-2xl p-2 focus:outline-none">
+          <i id="menuIcon" class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Right-Hand Side Semi-Transparent Mobile Menu Drawer -->
+    <div id="mobileMenu" class="lg:hidden bg-white/90 backdrop-blur-xl border-l shadow-2xl p-6 flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-center mb-8 pb-4 border-b">
+          <span class="font-bold text-teal-800 text-lg">Navigation Menu</span>
+          <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+        </div>
+        <div class="flex flex-col gap-4 font-medium text-gray-700 text-base">
+          <a href="index.html#home" onclick="toggleMobileMenu()" class="text-teal-700 font-bold">Home</a>
+          <a href="index.html#about" onclick="toggleMobileMenu()" class="hover:text-teal-700">About Us</a>
+          <a href="index.html#services" onclick="toggleMobileMenu()" class="hover:text-teal-700">Services</a>
+          <a href="insurance.html" onclick="toggleMobileMenu()" class="hover:text-teal-700">Insurance Programme</a>
+          <a href="blog.html" onclick="toggleMobileMenu()" class="hover:text-teal-700">Blog</a>
+          <a href="donate.html" onclick="toggleMobileMenu()" class="hover:text-teal-700">Donate</a>
+          <a href="index.html#online" onclick="toggleMobileMenu()" class="hover:text-teal-700">Online Consultation</a>
+          <a href="index.html#contact" onclick="toggleMobileMenu()" class="hover:text-teal-700">Contact</a>
+        </div>
+      </div>
+      <div class="pt-4 border-t text-xs text-gray-500 text-center">
+        Life Saving Medical Center • 24/7 Care
+      </div>
+    </div>
+  </nav>
+
+  <!-- Auto Health Camp Pop-up Announcement Modal -->
+  <div id="campModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300">
+    <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl p-6 md:p-8 relative border border-teal-100 text-center">
+      <button onclick="closeCampModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold p-1">&times;</button>
+      <div class="w-16 h-16 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center mx-auto text-3xl mb-4">
+        <i class="fas fa-notes-medical"></i>
+      </div>
+      <span class="bg-rose-100 text-rose-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Announcement</span>
+      <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mt-2 mb-2">Free Health Camp!</h3>
+      <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
+        Life Saving Medical Center is offering completely free health checkups, dental screening, general consultations, and child wellness reviews ending on <strong>November 28th</strong>.
+      </p>
+      
+      <div class="bg-rose-50 border border-rose-100 p-3 rounded-2xl mb-6 text-rose-900 font-mono font-bold text-sm" id="modalTimer">
+        Time Remaining: Loading...
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="blog.html" class="flex-1 bg-teal-700 hover:bg-teal-800 text-white font-semibold py-3 px-4 rounded-xl transition">
+          View Details on Blog
+        </a>
+        <button onclick="closeCampModal()" class="px-5 py-3 rounded-xl text-gray-500 hover:bg-gray-100 font-medium transition">
+          Dismiss
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero h-screen flex items-center text-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">Compassionate Care,<br>Life-Saving Solutions</h1>
+      <p class="text-xl md:text-2xl mb-8">24/7 Quality Healthcare with Specialist doctors and nurses</p>
+      
+      <div class="flex flex-wrap justify-center gap-6 text-sm mb-10">
+        <div class="flex items-center gap-2 bg-white/20 px-5 py-2 rounded-full backdrop-blur">
+          <i class="fas fa-clock"></i> <span>24/7 Emergency Services</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/20 px-5 py-2 rounded-full backdrop-blur">
+          <i class="fas fa-user-md"></i> <span>Available Specialist Doctors & Nurses</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/20 px-5 py-2 rounded-full backdrop-blur">
+          <i class="fas fa-shield-alt"></i> <span>Community health Insurance offered here</span>
+        </div>
+      </div>
+
+      <a href="#online" class="inline-block bg-white text-teal-700 font-semibold px-10 py-4 rounded-full text-lg hover:bg-teal-50">
+        Online Consultation is also offered.
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-teal-50">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="grid md:grid-cols-2 gap-12 items-start mb-16">
+        <div>
+          <span class="text-teal-700 font-bold text-sm tracking-wider uppercase">LIFESAVING HEALTH CARE FOUNDATION (LHCF)</span>
+          <h2 class="text-4xl font-bold text-teal-800 mt-1 mb-6">About Life Saving Medical Center</h2>
+          <p class="text-gray-700 text-lg leading-relaxed mb-4">
+            Located in Wakiso Town Council, Life Saving Medical Center is dedicated to providing high-quality, accessible, and reliable medical services to our community. Operating 24/7, our facility is equipped with modern infrastructure and staffed by a highly qualified team of healthcare professionals.
+          </p>
+          <p class="text-gray-700 text-lg leading-relaxed mb-4">
+            The Lifesaving Health Care Foundation (LHCF) is a registered nonprofit community-based organization based in Wakiso District, Uganda. We are dedicated to bridging the gap in healthcare services for underserved populations, particularly focusing on vulnerable groups such as women, children, and young people. Our mission revolves around promoting access to affordable, high-quality healthcare services while empowering communities through education and advocacy.
+          </p>
+          <p class="text-gray-700 text-lg leading-relaxed mb-4">
+            Whether you visit us in person or connect via our virtual consultation platforms, our priority remains the same: saving lives and promoting long-term health with dignity and compassion.
+          </p>
+          
+          <div class="bg-white p-5 rounded-2xl border border-teal-100 shadow-sm mt-6">
+            <h4 class="font-bold text-teal-800 text-md mb-1"><i class="fas fa-tint text-teal-600 mr-2"></i>Our Symbol & Motto</h4>
+            <p class="text-xs text-gray-500 italic mb-2">"Affordable Quality Health care is our Priority"</p>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Our symbol, represented by the vibrant water droplet and the human figure in the logo, encapsulates our commitment to vitality, growth, and compassionate care.
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-white p-8 rounded-3xl shadow-sm border border-teal-100">
+            <div class="mb-6">
+              <h3 class="text-2xl font-bold text-teal-800 mb-2"><i class="fas fa-eye text-teal-600 mr-2"></i>Our Vision</h3>
+              <p class="text-gray-700 leading-relaxed">
+                A world where every individual has access to affordable and high-quality health care, free from social, economic, and gender-based disparities.
+              </p>
+            </div>
+            <hr class="border-teal-100 my-4">
+            <div>
+              <h3 class="text-2xl font-bold text-teal-800 mb-2"><i class="fas fa-bullseye text-teal-600 mr-2"></i>Our Mission</h3>
+              <p class="text-gray-700 leading-relaxed">
+                To deliver lifesaving health care and support systems to communities in need through high-quality medical services, community empowerment, and sustainable partnerships.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white p-8 rounded-3xl shadow-sm border border-teal-100">
+            <h3 class="text-2xl font-bold text-teal-800 mb-6 text-center">Our Core Values</h3>
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <div class="bg-teal-100 p-3 rounded-xl text-teal-700 shrink-0">
+                  <i class="fas fa-universal-access text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-lg text-gray-900">Accessibility</h4>
+                  <p class="text-gray-600 text-sm">Making health care services affordable and within reach for all.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="bg-teal-100 p-3 rounded-xl text-teal-700 shrink-0">
+                  <i class="fas fa-heart text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-lg text-gray-900">Compassion</h4>
+                  <p class="text-gray-600 text-sm">Providing care that prioritizes dignity and respect. We treat every patient with maximum empathy, kindness, and deep respect.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="bg-teal-100 p-3 rounded-xl text-teal-700 shrink-0">
+                  <i class="fas fa-leaf text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-lg text-gray-900">Sustainability</h4>
+                  <p class="text-gray-600 text-sm">Building systems that ensure long-term community impact.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="bg-teal-100 p-3 rounded-xl text-teal-700 shrink-0">
+                  <i class="fas fa-hands-helping text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-lg text-gray-900">Empowerment</h4>
+                  <p class="text-gray-600 text-sm">Educating and advocating for healthier lives.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="bg-teal-100 p-3 rounded-xl text-teal-700 shrink-0">
+                  <i class="fas fa-lightbulb text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-lg text-gray-900">Innovation</h4>
+                  <p class="text-gray-600 text-sm">Continuously improving service delivery with modern tools and strategies.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="bg-teal-100 p-3 rounded-xl text-teal-700 shrink-0">
+                  <i class="fas fa-star text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-lg text-gray-900">Excellence & Integrity</h4>
+                  <p class="text-gray-600 text-sm">We maintain the highest professional standards, clinical ethics, honesty, and transparency in all procedures and diagnostics.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section (Images used instead of icons for Immunisation and others) -->
+  <section id="services" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-teal-800 mb-3">Our Medical Services</h2>
+        <p class="text-gray-600">Comprehensive care by experienced and fully qualified medical professionals</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="card bg-teal-50 border border-teal-200 rounded-3xl p-6 text-center flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="text-5xl mb-4">🩺</div>
+            <h3 class="text-xl font-semibold text-teal-900 mb-3">General Consultation</h3>
+            <p class="text-gray-700 text-sm mb-4">Expert diagnosis and treatment for common and complex health issues.</p>
+          </div>
+          <img src="images/consultation.jpg" alt="Doctor with client during consultation" class="w-full h-32 rounded-xl object-cover mt-2">
+        </div>
+
+        <div class="card bg-teal-50 border border-teal-200 rounded-3xl p-6 text-center flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="text-5xl mb-4">🦷</div>
+            <h3 class="text-xl font-semibold text-teal-900 mb-3">Dental Care</h3>
+            <p class="text-gray-700 text-sm mb-4">Professional dental services including cleaning and extractions.</p>
+          </div>
+          <img src="images/dental.webp" alt="Dental Care Scene" class="w-full h-32 rounded-xl object-cover mt-2">
+        </div>
+
+        <div class="card bg-teal-50 border border-teal-200 rounded-3xl p-6 text-center flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="text-5xl mb-4">🧪</div>
+            <h3 class="text-xl font-semibold text-teal-900 mb-3">Laboratory Tests</h3>
+            <p class="text-gray-700 text-sm mb-4">Fast and accurate lab investigations with modern equipment.</p>
+          </div>
+          <img src="images/lab test.png" alt="Laboratory Scene" class="w-full h-32 rounded-xl object-cover mt-2">
+        </div>
+
+        <div class="card bg-teal-50 border border-teal-200 rounded-3xl p-6 text-center flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="text-5xl mb-4">🤝</div>
+            <h3 class="text-xl font-semibold text-teal-900 mb-3">Community Health Insurance</h3>
+            <p class="text-gray-700 text-sm">We also offer a community insurance service where one pays a fee of <strong>UGX 2,000 per month</strong> and can come and get medical services at any time they feel unwell.</p>
+          </div>
+          <a href="insurance.html" class="mt-4 inline-block bg-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider self-center hover:bg-teal-700 transition">For more details</a>
+        </div>
+
+        <div class="card bg-teal-50 border border-teal-200 rounded-3xl p-6 text-center flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="mb-4 overflow-hidden rounded-xl h-24">
+              <img src="images/immunization.jpg" alt="Immunisation Services" class="w-full h-full object-cover">
+            </div>
+            <h3 class="text-xl font-semibold text-teal-900 mb-3">Immunisation Services</h3>
+            <p class="text-gray-700 text-sm mb-4">Routine infant, child, and adult vaccines to secure immunity protection.</p>
+          </div>
+          <img src="images/immunization.jpg" alt="Immunisation Services" class="w-full h-32 rounded-xl object-cover mt-2">
+        </div>
+
+        <div class="card bg-teal-50 border border-teal-200 rounded-3xl p-6 text-center flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="text-5xl mb-4">👶</div>
+            <h3 class="text-xl font-semibold text-teal-900 mb-3">Maternal & Child Health</h3>
+            <p class="text-gray-700 text-sm mb-4">Dedicated pediatric checking, childhood safety monitoring, and wellness care.</p>
+          </div>
+          <img src="images/mmertanal.webp" alt="Maternal Child Health Services" class="w-full h-32 rounded-xl object-cover mt-2">
+        </div>
+
+        <div class="card bg-teal-50 border border-teal-200 rounded-3xl p-6 text-center flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="text-5xl mb-4">🤰</div>
+            <h3 class="text-xl font-semibold text-teal-900 mb-3">Antenatal & Maternity</h3>
+            <p class="text-gray-700 text-sm mb-4">Comprehensive pregnancy screening guides, checks, and maternal tracking updates.</p>
+          </div>
+          <img src="images/antenental care.webp" alt="Antenatal Care and Maternity Services" class="w-full h-32 rounded-xl object-cover mt-2">
+        </div>
+
+        <div class="card bg-teal-50 border border-teal-200 rounded-3xl p-6 text-center flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="text-5xl mb-4">⭐</div>
+            <h3 class="text-xl font-semibold text-teal-900 mb-3">Specialist Services</h3>
+            <p class="text-gray-700 text-sm mb-4">Advanced specialized medicine reviews, diagnostics, and targeted treatments.</p>
+          </div>
+          <img src="images/specialist.png" alt="Specialist Services" class="w-full h-32 rounded-xl object-cover mt-2">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Online Consultation Section -->
+  <section id="online" class="py-20 bg-teal-50">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div class="bg-white rounded-3xl p-12 shadow">
+        <h2 class="text-4xl font-bold text-teal-800 mb-4">Online Medical Consultation</h2>
+        <p class="text-xl text-gray-600 mb-8">Consult with our qualified doctors from the comfort of your home via WhatsApp video/voice call.</p>
+        
+        <div class="text-6xl font-bold text-teal-700 mb-2">Free Online Consultation</div>
+        <p class="text-gray-600 text-xl mb-10">With Specialist doctors.</p>
+        
+        <a href="https://wa.me/256782543038" target="_blank" class="inline-flex items-center gap-3 bg-teal-600 hover:bg-teal-700 text-white text-xl font-semibold px-12 py-6 rounded-2xl">
+          <i class="fab fa-whatsapp text-4xl"></i>
+          Book Now via WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-teal-900 text-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold">Get In Touch</h2>
+        <p class="text-teal-200 mt-3">24/7 Emergency & General Care Available</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="space-y-8">
+          <div class="flex gap-4">
+            <i class="fas fa-phone text-3xl text-teal-400 mt-1"></i>
+            <div>
+              <p class="font-medium text-lg">+256 782 543 038 / +256 756 667 628</p>
+              <p class="text-teal-300">Call or WhatsApp</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <i class="fas fa-envelope text-3xl text-teal-400 mt-1"></i>
+            <div>
+              <a href="mailto:lifesvng@gmail.com" class="inline-block font-medium text-lg text-white hover:text-teal-400 hover:underline transition-all duration-300 hover:scale-105">lifesvng@gmail.com</a>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <i class="fas fa-map-marker-alt text-3xl text-teal-400 mt-1"></i>
+            <div>
+              <p class="font-medium text-lg">Kisimbiri Central Kassengeje Rd,</p>
+              <p class="text-teal-300 mb-3">Wakiso Town Council, Wakiso District (U)</p>
+              
+              <a href="https://maps.app.goo.gl/6X6EkQmKwfQCtRVV7?g_st=aw" target="_blank" class="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-400 text-teal-950 font-bold px-4 py-2 rounded-xl text-sm transition-all shadow">
+                <i class="fas fa-map-marked-alt text-lg"></i>
+                View Location on Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="text-lg mb-6">We have a team of fully qualified doctors and nurses ready to serve you 24/7.</p>
+          <a href="https://wa.me/256782543038" target="_blank" class="block text-center bg-white text-teal-700 font-semibold py-4 rounded-2xl hover:bg-green-500 hover:text-white hover:shadow-lg transition-all duration-300">
+            Message us on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8 text-center">
+    <p>&copy; 2026 Life Saving Medical Center / Lifesaving Health Care Foundation (LHCF). All rights reserved.</p>
+    <p class="text-sm text-gray-400 mt-2">24/7 • Fully Qualified Team • Insurance Accepted</p>
+  </footer>
+
+  <!-- Interactive Scripts -->
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const icon = document.getElementById('menuIcon');
+      menu.classList.toggle('open');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    }
+
+    function closeCampModal() {
+      document.getElementById('campModal').classList.add('hidden');
+    }
+
+    function updateCountdown() {
+      const targetDate = new Date("November 28, 2026 23:59:59").getTime();
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference <= 0) {
+        if(document.getElementById('marqueeTimer')) document.getElementById('marqueeTimer').innerText = "Event Ended";
+        if(document.getElementById('modalTimer')) document.getElementById('modalTimer').innerText = "Health Camp has officially concluded.";
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      const timeString = `${days}d ${hours}h ${minutes}m ${seconds}s left`;
+      
+      const marqueeElement = document.getElementById('marqueeTimer');
+      const modalElement = document.getElementById('modalTimer');
+      
+      if(marqueeElement) marqueeElement.innerText = timeString;
+      if(modalElement) modalElement.innerText = "Time Remaining: " + timeString;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
