@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> class="overflow-x-hidden"
+<html lang="en" class="overflow-x-hidden">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,17 +22,18 @@
     /* Right-side sliding semi-transparent mobile drawer */
     #mobileMenu {
       position: fixed;
-      insert: 0 0 0 auto;
-  
-      width: 80%;
-      max-width: 280px;
+      top: 0;
+      right: -280px; /* Hidden completely off-screen to the right */
+      width: 280px;
       height: 100vh;
-      transition: transform0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: right 0.3s ease-in-out;
       z-index: 9999;
-      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+      visibility: hidden;
     }
     #mobileMenu.open {
-     transform: translateX(0); /* slides it smoothly into view */
+      right: 0;
+      visibility: visible;
     }
   </style>
 </head>
@@ -43,7 +44,7 @@
     <div class="max-w-7xl mx-auto flex items-center justify-between overflow-hidden">
       <div class="flex items-center gap-3 overflow-hidden">
         <span class="bg-white text-rose-700 px-2 py-0.5 rounded-full text-[10px] sm:text-xs uppercase font-extrabold shrink-0">Upcoming Event</span>
-        <span class="truncate">🏥 FREE HEALTH CAMP AT LIFE SAVING MEDICAL CENTER! Ending on Nv29th — Tap here to check our blog & details!</span>
+        <span class="truncate">🏥 FREE HEALTH CAMP AT LIFE SAVING MEDICAL CENTER! Ending on Nov 29th — Tap here to check our blog & details!</span>
       </div>
       <div class="hidden md:flex items-center gap-2 pl-4 border-l border-rose-400/50 whitespace-nowrap shrink-0">
         <i class="fas fa-clock"></i>
@@ -60,7 +61,7 @@
           <img src="life logo.jpg" alt="LSMC Logo" class="w-full h-full object-cover">
         </div>
         <div>
-          <h1 class="text-lg md:text-xl font-bold text-teal-700 leading-none">LIFE SAVING </h1>
+          <h1 class="text-lg md:text-xl font-bold text-teal-700 leading-none">LIFE SAVING</h1>
           <p class="text-xs text-gray-800">HEALTH CARE FOUNDATION</p>
         </div>
       </a>
@@ -89,7 +90,7 @@
     </div>
 
     <!-- Right-Hand Side Semi-Transparent Mobile Menu Drawer -->
-    <div id="mobileMenu" class="lg:hidden bg-white/90 backdrop-blur-xl border-l shadow-2xl p-6 flex flex-col justify-between">
+    <div id="mobileMenu" class="lg:hidden bg-white/95 backdrop-blur-xl border-l shadow-2xl p-6 flex flex-col justify-between">
       <div>
         <div class="flex justify-between items-center mb-8 pb-4 border-b">
           <span class="font-bold text-teal-800 text-lg">Navigation Menu</span>
@@ -272,7 +273,7 @@
     </div>
   </section>
 
-  <!-- Services Section (Images used instead of icons for Immunisation and others) -->
+  <!-- Services Section -->
   <section id="services" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-12">
