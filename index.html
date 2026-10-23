@@ -22,17 +22,17 @@
     /* Right-side sliding semi-transparent mobile drawer */
     #mobileMenu {
       position: fixed;
-      top: 0;
-      right: -100%;
+      insert: 0 0 0 auto;
+  
       width: 80%;
       max-width: 280px;
       height: 100vh;
-      transition: right 0.3s ease-in-out;
-      z-index: 100;
-      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+      transition: transform0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 9999;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
     }
     #mobileMenu.open {
-      right: 0;
+     transform: translateX(0); /* slides it smoothly into view */
     }
   </style>
 </head>
