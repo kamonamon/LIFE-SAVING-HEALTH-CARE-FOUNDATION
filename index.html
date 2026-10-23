@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="overflow-x-hidden">
+<html lang="en" class="overflow-x-hidden scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,6 +34,20 @@
     #mobileMenu.open {
       right: 0;
       visibility: visible;
+    }
+
+    /* Back to Top Floating Button Style */
+    #backToTop {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    }
+    #backToTop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    #backToTop:hover {
+      transform: translateY(-3px);
     }
   </style>
 </head>
@@ -334,6 +348,11 @@
     <p>&copy; 2026 Life Saving Medical Center / Lifesaving Health Care Foundation (LHCF). All rights reserved.</p>
   </footer>
 
+  <!-- Back to Top Floating Arrow Button (Middle of Right-Hand Side) -->
+  <a href="#home" id="backToTop" class="fixed right-4 top-1/2 -translate-y-1/2 z-40 bg-teal-600 hover:bg-teal-700 text-white w-10 h-10 rounded-full shadow-lg flex items-center justify-center transition-all duration-300">
+    <i class="fas fa-arrow-up text-sm"></i>
+  </a>
+
   <!-- Interactive Scripts -->
   <script>
     function toggleMobileMenu() {
@@ -347,6 +366,16 @@
     function closeCampModal() {
       document.getElementById('campModal').classList.add('hidden');
     }
+
+    // Show/Hide Back to Top Button on scroll
+    window.addEventListener('scroll', function() {
+      const backToTopBtn = document.getElementById('backToTop');
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
 
     function updateCountdown() {
       const targetDate = new Date("November 28, 2026 23:59:59").getTime();
