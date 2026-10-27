@@ -40,6 +40,8 @@
     #backToTop:hover {
       transform: translateY(-3px);
     }
+
+    audio::-webkit-media-controls-panel { background-color: #f0fdfa; }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 overflow-x-hidden w-full">
@@ -197,33 +199,66 @@
         </div>
       </div>
 
-      <!-- Gallery Grid: Videos -->
+      <!-- Gallery Grid: Video Highlight (Updated first video source) -->
       <div class="mb-12">
         <h3 class="text-lg sm:text-xl font-bold text-teal-800 mb-6 flex items-center gap-2">
-          <i class="fas fa-video text-teal-600"></i> Video Highlights
+          <i class="fas fa-video text-teal-600"></i> Video Highlight
         </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-white rounded-2xl p-4 shadow-sm border border-teal-100">
-            <div class="rounded-xl overflow-hidden bg-black aspect-video flex items-center justify-center">
-              <video controls class="w-full h-full object-cover">
-                <source src="images/outreach vid.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
+        <div class="max-w-2xl mx-auto bg-white rounded-2xl p-4 shadow-sm border border-teal-100">
+          <div class="rounded-xl overflow-hidden bg-black aspect-video flex items-center justify-center">
+            <video controls class="w-full h-full object-cover">
+              <source src="images/outreach vid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <p class="mt-3 text-xs sm:text-sm font-semibold text-gray-800 text-center">School & Community Outreach Feature</p>
+          <p class="text-xs text-gray-500 text-center">A comprehensive look at our medical teams in action across Wakiso District.</p>
+        </div>
+      </div>
+
+      <!-- Patient Testimonies Audio Section (Re-added 3 audio testimonies) -->
+      <div class="mb-12">
+        <h3 class="text-lg sm:text-xl font-bold text-teal-800 mb-6 flex items-center gap-2">
+          <i class="fas fa-volume-high text-teal-600"></i> Patient Testimonies & Success Stories
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <div class="bg-white p-5 rounded-2xl shadow-sm border border-teal-100 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] sm:text-xs font-bold text-teal-600 uppercase">Healed Patient</span>
+              <h4 class="text-base font-bold text-gray-900 mt-1 mb-2">Grace Nakato's Recovery</h4>
+              <p class="text-gray-600 text-xs leading-relaxed mb-4">"The doctors at Life Saving Medical Center treated me with extreme care during my severe malaria treatment. I am fully healed and back home."</p>
             </div>
-            <p class="mt-3 text-xs sm:text-sm font-semibold text-gray-800">School Outreach Summary Feature</p>
-            <p class="text-xs text-gray-500">A short documentary reel capturing our team examining students at partner schools.</p>
+            <audio controls class="w-full mt-2 rounded-lg">
+              <source src="audio/testimony1.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
           </div>
 
-          <div class="bg-white rounded-2xl p-4 shadow-sm border border-teal-100">
-            <div class="rounded-xl overflow-hidden bg-black aspect-video flex items-center justify-center">
-              <video controls class="w-full h-full object-cover">
-                <source src="videos/community-care.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
+          <div class="bg-white p-5 rounded-2xl shadow-sm border border-teal-100 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] sm:text-xs font-bold text-teal-600 uppercase">Maternal Care Beneficiary</span>
+              <h4 class="text-base font-bold text-gray-900 mt-1 mb-2">Sarah & Newborn Baby</h4>
+              <p class="text-gray-600 text-xs leading-relaxed mb-4">"From my antenatal care up to delivery, the midwives were supportive and professional. The postnatal follow-up home visit gave me great peace of mind."</p>
             </div>
-            <p class="mt-3 text-xs sm:text-sm font-semibold text-gray-800">24/7 Emergency Response Tour</p>
-            <p class="text-xs text-gray-500">Inside look at our emergency triage unit and laboratory facilities in Wakiso.</p>
+            <audio controls class="w-full mt-2 rounded-lg">
+              <source src="audio/testimony2.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
           </div>
+
+          <div class="bg-white p-5 rounded-2xl shadow-sm border border-teal-100 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] sm:text-xs font-bold text-teal-600 uppercase">Insurance Subscriber</span>
+              <h4 class="text-base font-bold text-gray-900 mt-1 mb-2">John Mugisha's Experience</h4>
+              <p class="text-gray-600 text-xs leading-relaxed mb-4">"The 2,000 UGX monthly health scheme has saved my family from sudden medical bills. Getting quick outpatient checkups is now completely effortless."</p>
+            </div>
+            <audio controls class="w-full mt-2 rounded-lg">
+              <source src="audio/testimony3.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
         </div>
       </div>
 
