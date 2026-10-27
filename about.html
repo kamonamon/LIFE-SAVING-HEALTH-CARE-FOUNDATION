@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="overflow-x-hidden">
+<html lang="en" class="overflow-x-hidden scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,18 +26,34 @@
       right: 0;
       visibility: visible;
     }
+
+    /* Back to Top Floating Button Style */
+    #backToTop {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    }
+    #backToTop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    #backToTop:hover {
+      transform: translateY(-3px);
+    }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden w-full">
 
-  <!-- Active Marquee Ticker Link to blog.html -->
+  <!-- Working Moving Marquee Ticker Link -->
   <a href="blog.html" class="block bg-rose-600 hover:bg-rose-700 text-white py-2.5 px-3 sm:px-4 text-xs md:text-sm font-semibold shadow-inner transition overflow-hidden">
-    <div class="max-w-7xl mx-auto flex items-center justify-between overflow-hidden">
-      <div class="flex items-center gap-3 overflow-hidden">
-        <span class="bg-white text-rose-700 px-2 py-0.5 rounded-full text-[10px] sm:text-xs uppercase font-extrabold shrink-0">Upcoming Event</span>
-        <span class="truncate">🏥 FREE HEALTH CAMP AT LIFE SAVING MEDICAL CENTER! Ending on Nov 29th — Tap here to check our blog & details!</span>
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3 overflow-hidden w-full">
+        <span class="bg-white text-rose-700 px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs uppercase font-extrabold shrink-0">Upcoming Event</span>
+        <marquee behavior="scroll" direction="left" scrollamount="5" class="text-xs sm:text-sm font-medium tracking-wide" onmouseover="this.stop();" onmouseout="this.start();">
+          🏥 FREE HEALTH CAMP AT LIFE SAVING MEDICAL CENTER! Ending on November 28th — Tap here to check our blog & details!
+        </marquee>
       </div>
-      <div class="hidden md:flex items-center gap-2 pl-4 border-l border-rose-400/50 whitespace-nowrap shrink-0">
+      <div class="hidden md:flex items-center gap-2 pl-4 border-l border-rose-400/50 whitespace-nowrap shrink-0 text-xs">
         <i class="fas fa-clock"></i>
         <span id="marqueeTimer">Calculating...</span>
       </div>
@@ -46,14 +62,14 @@
 
   <!-- Navigation Bar (Sticky top-0) -->
   <nav class="bg-white/95 backdrop-blur-md shadow sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-3 md:px-6 py-3 flex justify-between items-center">
-      <a href="index.html" class="flex items-center gap-3">
-        <div class="w-11 h-11 bg-teal-700 rounded-full flex items-center justify-center overflow-hidden shrink-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-2 sm:gap-3">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 bg-teal-700 rounded-full flex items-center justify-center overflow-hidden shrink-0">
           <img src="life logo.jpg" alt="LSMC Logo" class="w-full h-full object-cover">
         </div>
         <div>
-          <h1 class="text-lg md:text-xl font-bold text-teal-700 leading-none">LIFE SAVING</h1>
-          <p class="text-xs text-gray-800">HEALTH CARE FOUNDATION</p>
+          <h1 class="text-base sm:text-lg md:text-xl font-bold text-teal-700 leading-none">LIFE SAVING</h1>
+          <p class="text-[10px] sm:text-xs text-gray-800 font-medium">HEALTH CARE FOUNDATION</p>
         </div>
       </a>
       
@@ -68,12 +84,12 @@
         <a href="index.html#contact" class="hover:text-teal-700 transition-colors">Contact</a>
       </div>
 
-      <div class="flex items-center gap-3">
-        <a href="https://wa.me/256782543038" target="_blank" class="bg-teal-600/90 backdrop-blur-md hover:bg-teal-700 text-white px-4 py-2.5 rounded-full flex items-center gap-2 text-xs md:text-sm font-medium transition shadow-md">
-          <i class="fab fa-whatsapp text-lg"></i>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="https://wa.me/256782543038" target="_blank" class="bg-teal-600/90 backdrop-blur-md hover:bg-teal-700 text-white px-3 sm:px-4 py-2 rounded-full flex items-center gap-2 text-xs sm:text-sm font-medium transition shadow-md">
+          <i class="fab fa-whatsapp text-base sm:text-lg"></i>
           <span class="hidden sm:inline">WhatsApp Us</span>
         </a>
-        <button onclick="toggleMobileMenu()" class="lg:hidden text-teal-700 text-2xl p-2 focus:outline-none">
+        <button onclick="toggleMobileMenu()" class="lg:hidden text-teal-700 text-xl sm:text-2xl p-2 focus:outline-none">
           <i id="menuIcon" class="fas fa-bars"></i>
         </button>
       </div>
@@ -104,104 +120,104 @@
   </nav>
 
   <!-- About Section Content -->
-  <section class="py-20 bg-teal-50">
-    <div class="max-w-7xl mx-auto px-6">
+  <section class="py-12 sm:py-20 bg-teal-50 px-4">
+    <div class="max-w-7xl mx-auto">
       
-      <div class="grid md:grid-cols-2 gap-12 items-start mb-16">
+      <div class="grid md:grid-cols-2 gap-8 sm:gap-12 items-start mb-16">
         <div>
-          <span class="text-teal-700 font-bold text-sm tracking-wider uppercase">LIFESAVING HEALTH CARE FOUNDATION (LHCF)</span>
-          <h2 class="text-4xl font-bold text-teal-800 mt-1 mb-6">About Life Saving Medical Center</h2>
-          <p class="text-gray-700 text-lg leading-relaxed mb-4">
+          <span class="text-teal-700 font-bold text-xs sm:text-sm tracking-wider uppercase">LIFESAVING HEALTH CARE FOUNDATION (LHCF)</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-teal-800 mt-1 mb-6">About Life Saving Medical Center</h2>
+          <p class="text-gray-700 text-base sm:text-lg leading-relaxed mb-4">
             Located in Wakiso Town Council, Life Saving Medical Center is dedicated to providing high-quality, accessible, and reliable medical services to our community. Operating 24/7, our facility is equipped with modern infrastructure and staffed by a highly qualified team of healthcare professionals.
           </p>
-          <p class="text-gray-700 text-lg leading-relaxed mb-4">
+          <p class="text-gray-700 text-base sm:text-lg leading-relaxed mb-4">
             The Lifesaving Health Care Foundation (LHCF) is a registered nonprofit community-based organization based in Wakiso District, Uganda. We are dedicated to bridging the gap in healthcare services for underserved populations, particularly focusing on vulnerable groups such as women, children, and young people. Our mission revolves around promoting access to affordable, high-quality healthcare services while empowering communities through education and advocacy.
           </p>
-          <p class="text-gray-700 text-lg leading-relaxed mb-4">
+          <p class="text-gray-700 text-base sm:text-lg leading-relaxed mb-4">
             Whether you visit us in person or connect via our virtual consultation platforms, our priority remains the same: saving lives and promoting long-term health with dignity and compassion.
           </p>
           
           <div class="bg-white p-5 rounded-2xl border border-teal-100 shadow-sm mt-6">
-            <h4 class="font-bold text-teal-800 text-md mb-1"><i class="fas fa-tint text-teal-600 mr-2"></i>Our Symbol & Motto</h4>
+            <h4 class="font-bold text-teal-800 text-sm sm:text-base mb-1"><i class="fas fa-tint text-teal-600 mr-2"></i>Our Symbol & Motto</h4>
             <p class="text-xs text-gray-500 italic mb-2">"Affordable Quality Health care is our Priority"</p>
-            <p class="text-gray-600 text-sm leading-relaxed">
+            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
               Our symbol, represented by the vibrant water droplet and the human figure in the logo, encapsulates our commitment to vitality, growth, and compassionate care.
             </p>
           </div>
         </div>
 
         <div class="space-y-6">
-          <div class="bg-white p-8 rounded-3xl shadow-sm border border-teal-100">
+          <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-teal-100">
             <div class="mb-6">
-              <h3 class="text-2xl font-bold text-teal-800 mb-2"><i class="fas fa-eye text-teal-600 mr-2"></i>Our Vision</h3>
-              <p class="text-gray-700 leading-relaxed">
+              <h3 class="text-xl sm:text-2xl font-bold text-teal-800 mb-2"><i class="fas fa-eye text-teal-600 mr-2"></i>Our Vision</h3>
+              <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
                 A world where every individual has access to affordable and high-quality health care, free from social, economic, and gender-based disparities.
               </p>
             </div>
             <hr class="border-teal-100 my-4">
             <div>
-              <h3 class="text-2xl font-bold text-teal-800 mb-2"><i class="fas fa-bullseye text-teal-600 mr-2"></i>Our Mission</h3>
-              <p class="text-gray-700 leading-relaxed">
+              <h3 class="text-xl sm:text-2xl font-bold text-teal-800 mb-2"><i class="fas fa-bullseye text-teal-600 mr-2"></i>Our Mission</h3>
+              <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
                 To deliver lifesaving health care and support systems to communities in need through high-quality medical services, community empowerment, and sustainable partnerships.
               </p>
             </div>
           </div>
 
-          <div class="bg-white p-8 rounded-3xl shadow-sm border border-teal-100">
-            <h3 class="text-2xl font-bold text-teal-800 mb-6 text-center">Our Core Values</h3>
+          <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-teal-100">
+            <h3 class="text-xl sm:text-2xl font-bold text-teal-800 mb-6 text-center">Our Core Values</h3>
             <div class="space-y-4">
               <div class="flex items-start gap-4">
-                <div class="bg-teal-100 p-3 rounded-xl text-teal-700 shrink-0">
-                  <i class="fas fa-universal-access text-xl"></i>
+                <div class="bg-teal-100 p-2.5 sm:p-3 rounded-xl text-teal-700 shrink-0">
+                  <i class="fas fa-universal-access text-lg sm:text-xl"></i>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-lg text-gray-900">Accessibility</h4>
-                  <p class="text-gray-600 text-sm">Making health care services affordable and within reach for all.</p>
+                  <h4 class="font-semibold text-base sm:text-lg text-gray-900">Accessibility</h4>
+                  <p class="text-gray-600 text-xs sm:text-sm">Making health care services affordable and within reach for all.</p>
                 </div>
               </div>
               <div class="flex items-start gap-4">
-                <div class="bg-teal-100 p-3 rounded-xl text-teal-700 shrink-0">
-                  <i class="fas fa-heart text-xl"></i>
+                <div class="bg-teal-100 p-2.5 sm:p-3 rounded-xl text-teal-700 shrink-0">
+                  <i class="fas fa-heart text-lg sm:text-xl"></i>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-lg text-gray-900">Compassion</h4>
-                  <p class="text-gray-600 text-sm">Providing care that prioritizes dignity and respect. We treat every patient with maximum empathy, kindness, and deep respect.</p>
+                  <h4 class="font-semibold text-base sm:text-lg text-gray-900">Compassion</h4>
+                  <p class="text-gray-600 text-xs sm:text-sm">Providing care that prioritizes dignity and respect. We treat every patient with maximum empathy, kindness, and deep respect.</p>
                 </div>
               </div>
               <div class="flex items-start gap-4">
-                <div class="bg-teal-100 p-3 rounded-xl text-teal-700 shrink-0">
-                  <i class="fas fa-leaf text-xl"></i>
+                <div class="bg-teal-100 p-2.5 sm:p-3 rounded-xl text-teal-700 shrink-0">
+                  <i class="fas fa-leaf text-lg sm:text-xl"></i>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-lg text-gray-900">Sustainability</h4>
-                  <p class="text-gray-600 text-sm">Building systems that ensure long-term community impact.</p>
+                  <h4 class="font-semibold text-base sm:text-lg text-gray-900">Sustainability</h4>
+                  <p class="text-gray-600 text-xs sm:text-sm">Building systems that ensure long-term community impact.</p>
                 </div>
               </div>
               <div class="flex items-start gap-4">
-                <div class="bg-teal-100 p-3 rounded-xl text-teal-700 shrink-0">
-                  <i class="fas fa-hands-helping text-xl"></i>
+                <div class="bg-teal-100 p-2.5 sm:p-3 rounded-xl text-teal-700 shrink-0">
+                  <i class="fas fa-hands-helping text-lg sm:text-xl"></i>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-lg text-gray-900">Empowerment</h4>
-                  <p class="text-gray-600 text-sm">Educating and advocating for healthier lives.</p>
+                  <h4 class="font-semibold text-base sm:text-lg text-gray-900">Empowerment</h4>
+                  <p class="text-gray-600 text-xs sm:text-sm">Educating and advocating for healthier lives.</p>
                 </div>
               </div>
               <div class="flex items-start gap-4">
-                <div class="bg-teal-100 p-3 rounded-xl text-teal-700 shrink-0">
-                  <i class="fas fa-lightbulb text-xl"></i>
+                <div class="bg-teal-100 p-2.5 sm:p-3 rounded-xl text-teal-700 shrink-0">
+                  <i class="fas fa-lightbulb text-lg sm:text-xl"></i>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-lg text-gray-900">Innovation</h4>
-                  <p class="text-gray-600 text-sm">Continuously improving service delivery with modern tools and strategies.</p>
+                  <h4 class="font-semibold text-base sm:text-lg text-gray-900">Innovation</h4>
+                  <p class="text-gray-600 text-xs sm:text-sm">Continuously improving service delivery with modern tools and strategies.</p>
                 </div>
               </div>
               <div class="flex items-start gap-4">
-                <div class="bg-teal-100 p-3 rounded-xl text-teal-700 shrink-0">
-                  <i class="fas fa-star text-xl"></i>
+                <div class="bg-teal-100 p-2.5 sm:p-3 rounded-xl text-teal-700 shrink-0">
+                  <i class="fas fa-star text-lg sm:text-xl"></i>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-lg text-gray-900">Excellence & Integrity</h4>
-                  <p class="text-gray-600 text-sm">We maintain the highest professional standards, clinical ethics, honesty, and transparency in all procedures and diagnostics.</p>
+                  <h4 class="font-semibold text-base sm:text-lg text-gray-900">Excellence & Integrity</h4>
+                  <p class="text-gray-600 text-xs sm:text-sm">We maintain the highest professional standards, clinical ethics, honesty, and transparency in all procedures and diagnostics.</p>
                 </div>
               </div>
             </div>
@@ -212,26 +228,31 @@
   </section>
 
   <!-- Quick Links Section -->
-  <section class="bg-teal-950 text-white py-12 border-t border-teal-900">
-    <div class="max-w-7xl mx-auto px-6">
-      <h3 class="text-xl font-bold text-teal-400 uppercase tracking-wider mb-6 pb-2 border-b border-teal-900">Quick Links</h3>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-sm font-medium">
-        <a href="index.html#home" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Home</a>
-        <a href="about.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> About Us</a>
-        <a href="index.html#services" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Services</a>
-        <a href="insurance.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Insurance Programme</a>
-        <a href="blog.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Blog</a>
-        <a href="donate.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Donate</a>
-        <a href="index.html#online" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Online Consultation</a>
-        <a href="index.html#contact" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Contact</a>
+  <section class="bg-teal-950 text-white py-12 border-t border-teal-900 px-4">
+    <div class="max-w-7xl mx-auto">
+      <h3 class="text-lg sm:text-xl font-bold text-teal-400 uppercase tracking-wider mb-6 pb-2 border-b border-teal-900">Quick Links</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-xs sm:text-sm font-medium">
+        <a href="index.html#home" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Home</a>
+        <a href="about.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> About Us</a>
+        <a href="index.html#services" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Services</a>
+        <a href="insurance.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Insurance Programme</a>
+        <a href="blog.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Blog</a>
+        <a href="donate.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Donate</a>
+        <a href="index.html#online" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Online Consultation</a>
+        <a href="index.html#contact" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Contact</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-950 text-white py-6 text-center text-xs">
+  <footer class="bg-gray-950 text-white py-6 text-center text-xs px-4">
     <p>&copy; 2026 Life Saving Medical Center / Lifesaving Health Care Foundation (LHCF). All rights reserved.</p>
   </footer>
+
+  <!-- Back to Top Floating Arrow Button -->
+  <a href="#" id="backToTop" class="fixed right-4 top-1/2 -translate-y-1/2 z-40 bg-teal-600 hover:bg-teal-700 text-white w-9 h-9 sm:w-10 sm:h-10 rounded-full shadow-lg flex items-center justify-center transition-all duration-300">
+    <i class="fas fa-arrow-up text-xs sm:text-sm"></i>
+  </a>
 
   <!-- Interactive Scripts -->
   <script>
@@ -242,6 +263,16 @@
       icon.classList.toggle('fa-bars');
       icon.classList.toggle('fa-times');
     }
+
+    // Show/Hide Back to Top Button on scroll
+    window.addEventListener('scroll', function() {
+      const backToTopBtn = document.getElementById('backToTop');
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
 
     function updateCountdown() {
       const targetDate = new Date("November 28, 2026 23:59:59").getTime();
