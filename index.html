@@ -1,3 +1,5 @@
+Here is your fully updated index.html code with the popup modal successfully updated to display your event flyer image (named camp.jpg inside your images/ folder), complete with all recent features, styling, and navigation links.
+Updated index.html Code:
 <!DOCTYPE html>
 <html lang="en" class="overflow-x-hidden scroll-smooth">
 <head>
@@ -129,10 +131,13 @@
   <!-- Auto Health Camp Pop-up Announcement Modal -->
   <div id="campModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300">
     <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl p-6 md:p-8 relative border border-teal-100 text-center">
-      <button onclick="closeCampModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold p-1">&times;</button>
-      <div class="w-16 h-16 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center mx-auto text-3xl mb-4">
-        <i class="fas fa-notes-medical"></i>
+      <button onclick="closeCampModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold p-1 z-10">&times;</button>
+      
+      <!-- Event Flyer Image Displayed Here -->
+      <div class="w-full h-64 mb-4 overflow-hidden rounded-2xl shadow-md border border-teal-100">
+        <img src="images/camp.jpg" alt="Health Camp Flyer" class="w-full h-full object-cover">
       </div>
+
       <span class="bg-rose-100 text-rose-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Announcement</span>
       <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mt-2 mb-2">Free Health Camp!</h3>
       <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
@@ -407,3 +412,4 @@
   </script>
 </body>
 </html>
+
