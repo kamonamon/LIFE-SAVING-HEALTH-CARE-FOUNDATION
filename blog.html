@@ -199,14 +199,14 @@
         </div>
       </div>
 
-      <!-- Gallery Grid: Video Highlight (Updated first video source) -->
+      <!-- Gallery Grid: Video Highlight (Fixed video loading attributes) -->
       <div class="mb-12">
         <h3 class="text-lg sm:text-xl font-bold text-teal-800 mb-6 flex items-center gap-2">
           <i class="fas fa-video text-teal-600"></i> Video Highlight
         </h3>
         <div class="max-w-2xl mx-auto bg-white rounded-2xl p-4 shadow-sm border border-teal-100">
           <div class="rounded-xl overflow-hidden bg-black aspect-video flex items-center justify-center">
-            <video controls class="w-full h-full object-cover">
+            <video controls preload="metadata" playsinline class="w-full h-full object-cover">
               <source src="images/outreach vid.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -216,7 +216,7 @@
         </div>
       </div>
 
-      <!-- Patient Testimonies Audio Section (Re-added 3 audio testimonies) -->
+      <!-- Patient Testimonies Audio Section (Client 1, Client 2, Client 3) -->
       <div class="mb-12">
         <h3 class="text-lg sm:text-xl font-bold text-teal-800 mb-6 flex items-center gap-2">
           <i class="fas fa-volume-high text-teal-600"></i> Patient Testimonies & Success Stories
@@ -229,8 +229,8 @@
               <h4 class="text-base font-bold text-gray-900 mt-1 mb-2">Grace Nakato's Recovery</h4>
               <p class="text-gray-600 text-xs leading-relaxed mb-4">"The doctors at Life Saving Medical Center treated me with extreme care during my severe malaria treatment. I am fully healed and back home."</p>
             </div>
-            <audio controls class="w-full mt-2 rounded-lg">
-              <source src="audio/testimony1.mp3" type="audio/mpeg">
+            <audio controls preload="none" class="w-full mt-2 rounded-lg">
+              <source src="audio/client 1.mp3" type="audio/mpeg">
               Your browser does not support the audio element.
             </audio>
           </div>
@@ -241,8 +241,8 @@
               <h4 class="text-base font-bold text-gray-900 mt-1 mb-2">Sarah & Newborn Baby</h4>
               <p class="text-gray-600 text-xs leading-relaxed mb-4">"From my antenatal care up to delivery, the midwives were supportive and professional. The postnatal follow-up home visit gave me great peace of mind."</p>
             </div>
-            <audio controls class="w-full mt-2 rounded-lg">
-              <source src="audio/testimony2.mp3" type="audio/mpeg">
+            <audio controls preload="none" class="w-full mt-2 rounded-lg">
+              <source src="audio/client 2.mp3" type="audio/mpeg">
               Your browser does not support the audio element.
             </audio>
           </div>
@@ -253,8 +253,8 @@
               <h4 class="text-base font-bold text-gray-900 mt-1 mb-2">John Mugisha's Experience</h4>
               <p class="text-gray-600 text-xs leading-relaxed mb-4">"The 2,000 UGX monthly health scheme has saved my family from sudden medical bills. Getting quick outpatient checkups is now completely effortless."</p>
             </div>
-            <audio controls class="w-full mt-2 rounded-lg">
-              <source src="audio/testimony3.mp3" type="audio/mpeg">
+            <audio controls preload="none" class="w-full mt-2 rounded-lg">
+              <source src="audio/client 3.mp3" type="audio/mpeg">
               Your browser does not support the audio element.
             </audio>
           </div>
