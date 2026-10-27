@@ -23,7 +23,7 @@
     #mobileMenu {
       position: fixed;
       top: 0;
-      right: -280px; /* Hidden completely off-screen to the right */
+      right: -280px;
       width: 280px;
       height: 100vh;
       transition: right 0.3s ease-in-out;
@@ -51,32 +51,34 @@
     }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden w-full">
 
-  <!-- Active Marquee Ticker Link to blog.html -->
+  <!-- Working Moving Marquee Ticker Link -->
   <a href="blog.html" class="block bg-rose-600 hover:bg-rose-700 text-white py-2.5 px-3 sm:px-4 text-xs md:text-sm font-semibold shadow-inner transition overflow-hidden">
-    <div class="max-w-7xl mx-auto flex items-center justify-between overflow-hidden">
-      <div class="flex items-center gap-3 overflow-hidden">
-        <span class="bg-white text-rose-700 px-2 py-0.5 rounded-full text-[10px] sm:text-xs uppercase font-extrabold shrink-0">Upcoming Event</span>
-        <span class="truncate">🏥 FREE HEALTH CAMP AT LIFE SAVING MEDICAL CENTER! Ending on Nov 28th — Tap here to check our blog & details!</span>
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3 overflow-hidden w-full">
+        <span class="bg-white text-rose-700 px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs uppercase font-extrabold shrink-0">Upcoming Event</span>
+        <marquee behavior="scroll" direction="left" scrollamount="5" class="text-xs sm:text-sm font-medium tracking-wide" onmouseover="this.stop();" onmouseout="this.start();">
+          🏥 FREE HEALTH CAMP AT LIFE SAVING MEDICAL CENTER! Ending on November 28th — Tap here to check our blog & details!
+        </marquee>
       </div>
-      <div class="hidden md:flex items-center gap-2 pl-4 border-l border-rose-400/50 whitespace-nowrap shrink-0">
+      <div class="hidden md:flex items-center gap-2 pl-4 border-l border-rose-400/50 whitespace-nowrap shrink-0 text-xs">
         <i class="fas fa-clock"></i>
         <span id="marqueeTimer">Calculating...</span>
       </div>
     </div>
   </a>
 
-  <!-- Navigation Bar (Sticky top-0) -->
+  <!-- Navigation Bar -->
   <nav class="bg-white/95 backdrop-blur-md shadow sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-3 md:px-6 py-3 flex justify-between items-center">
-      <a href="index.html" class="flex items-center gap-3">
-        <div class="w-11 h-11 bg-teal-700 rounded-full flex items-center justify-center overflow-hidden shrink-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-2 sm:gap-3">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 bg-teal-700 rounded-full flex items-center justify-center overflow-hidden shrink-0">
           <img src="life logo.jpg" alt="LSMC Logo" class="w-full h-full object-cover">
         </div>
         <div>
-          <h1 class="text-lg md:text-xl font-bold text-teal-700 leading-none">LIFE SAVING</h1>
-          <p class="text-xs text-gray-800">HEALTH CARE FOUNDATION</p>
+          <h1 class="text-base sm:text-lg md:text-xl font-bold text-teal-700 leading-none">LIFE SAVING</h1>
+          <p class="text-[10px] sm:text-xs text-gray-800 font-medium">HEALTH CARE FOUNDATION</p>
         </div>
       </a>
       
@@ -91,18 +93,18 @@
         <a href="index.html#contact" class="hover:text-teal-700 transition-colors">Contact</a>
       </div>
 
-      <div class="flex items-center gap-3">
-        <a href="https://wa.me/256782543038" target="_blank" class="bg-teal-600/90 backdrop-blur-md hover:bg-teal-700 text-white px-4 py-2.5 rounded-full flex items-center gap-2 text-xs md:text-sm font-medium transition shadow-md">
-          <i class="fab fa-whatsapp text-lg"></i>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="https://wa.me/256782543038" target="_blank" class="bg-teal-600/90 backdrop-blur-md hover:bg-teal-700 text-white px-3 sm:px-4 py-2 rounded-full flex items-center gap-2 text-xs sm:text-sm font-medium transition shadow-md">
+          <i class="fab fa-whatsapp text-base sm:text-lg"></i>
           <span class="hidden sm:inline">WhatsApp Us</span>
         </a>
-        <button onclick="toggleMobileMenu()" class="lg:hidden text-teal-700 text-2xl p-2 focus:outline-none">
+        <button onclick="toggleMobileMenu()" class="lg:hidden text-teal-700 text-xl sm:text-2xl p-2 focus:outline-none">
           <i id="menuIcon" class="fas fa-bars"></i>
         </button>
       </div>
     </div>
 
-    <!-- Right-Hand Side Mobile Menu Drawer -->
+    <!-- Mobile Menu Drawer -->
     <div id="mobileMenu" class="lg:hidden bg-white/95 backdrop-blur-xl border-l shadow-2xl p-6 flex flex-col justify-between">
       <div>
         <div class="flex justify-between items-center mb-8 pb-4 border-b">
@@ -128,29 +130,29 @@
 
   <!-- Auto Health Camp Pop-up Announcement Modal -->
   <div id="campModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300">
-    <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl p-6 md:p-8 relative border border-teal-100 text-center">
+    <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl p-5 sm:p-8 relative border border-teal-100 text-center max-h-[90vh] overflow-y-auto">
       <button onclick="closeCampModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold p-1 z-10">&times;</button>
       
-      <!-- Event Flyer Image Displayed Here (banner.jpg) -->
-      <div class="w-full h-64 mb-4 overflow-hidden rounded-2xl shadow-md border border-teal-100">
+      <!-- Event Flyer Image (banner.jpg) -->
+      <div class="w-full h-48 sm:h-64 mb-4 overflow-hidden rounded-2xl shadow-md border border-teal-100 bg-gray-100">
         <img src="images/banner.jpg" alt="Health Camp Banner" class="w-full h-full object-cover">
       </div>
 
-      <span class="bg-rose-100 text-rose-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Announcement</span>
-      <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mt-2 mb-2">Free Health Camp!</h3>
-      <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
+      <span class="bg-rose-100 text-rose-800 text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Announcement</span>
+      <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mt-2 mb-2">Free Health Camp!</h3>
+      <p class="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed mb-4 sm:mb-6">
         Life Saving Medical Center is offering completely free health checkups, dental screening, general consultations, and child wellness reviews ending on <strong>November 28th</strong>.
       </p>
       
-      <div class="bg-rose-50 border border-rose-100 p-3 rounded-2xl mb-6 text-rose-900 font-mono font-bold text-sm" id="modalTimer">
+      <div class="bg-rose-50 border border-rose-100 p-3 rounded-2xl mb-6 text-rose-900 font-mono font-bold text-xs sm:text-sm" id="modalTimer">
         Time Remaining: Loading...
       </div>
 
       <div class="flex flex-col sm:flex-row gap-3">
-        <a href="blog.html" class="flex-1 bg-teal-700 hover:bg-teal-800 text-white font-semibold py-3 px-4 rounded-xl transition">
+        <a href="blog.html" class="flex-1 bg-teal-700 hover:bg-teal-800 text-white font-semibold py-2.5 sm:py-3 px-4 rounded-xl text-xs sm:text-sm transition">
           View Details on Blog
         </a>
-        <button onclick="closeCampModal()" class="px-5 py-3 rounded-xl text-gray-500 hover:bg-gray-100 font-medium transition">
+        <button onclick="closeCampModal()" class="px-5 py-2.5 sm:py-3 rounded-xl text-gray-500 hover:bg-gray-100 font-medium text-xs sm:text-sm transition">
           Dismiss
         </button>
       </div>
@@ -158,106 +160,106 @@
   </div>
 
   <!-- Hero Section -->
-  <section id="home" class="hero h-screen flex items-center text-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">Compassionate Care,<br>Life-Saving Solutions</h1>
-      <p class="text-xl md:text-2xl mb-8">24/7 Quality Healthcare with Specialist doctors and nurses</p>
+  <section id="home" class="hero min-h-screen flex items-center text-white py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">Compassionate Care,<br>Life-Saving Solutions</h1>
+      <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 font-light text-gray-100">24/7 Quality Healthcare with Specialist doctors and nurses</p>
       
-      <div class="flex flex-wrap justify-center gap-6 text-sm mb-10">
-        <div class="flex items-center gap-2 bg-white/20 px-5 py-2 rounded-full backdrop-blur">
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-6 text-xs sm:text-sm mb-10">
+        <div class="flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full backdrop-blur">
           <i class="fas fa-clock"></i> <span>24/7 Emergency Services</span>
         </div>
-        <div class="flex items-center gap-2 bg-white/20 px-5 py-2 rounded-full backdrop-blur">
-          <i class="fas fa-user-md"></i> <span>Available Specialist Doctors & Nurses</span>
+        <div class="flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full backdrop-blur">
+          <i class="fas fa-user-md"></i> <span>Specialist Doctors & Nurses</span>
         </div>
-        <div class="flex items-center gap-2 bg-white/20 px-5 py-2 rounded-full backdrop-blur">
-          <i class="fas fa-shield-alt"></i> <span>Community health Insurance offered here</span>
+        <div class="flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full backdrop-blur">
+          <i class="fas fa-shield-alt"></i> <span>Community Health Insurance</span>
         </div>
       </div>
 
-      <a href="#online" class="inline-block bg-white text-teal-700 font-semibold px-10 py-4 rounded-full text-lg hover:bg-teal-50">
-        Online Consultation is also offered.
+      <a href="#online" class="inline-block bg-white text-teal-700 font-semibold px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg hover:bg-teal-50 transition shadow-lg">
+        Online Consultation Offered Here
       </a>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
+  <section id="services" class="py-16 sm:py-20 bg-white px-4">
+    <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-teal-800 mb-3">Our Medical Services</h2>
-        <p class="text-gray-600">Comprehensive care by experienced and fully qualified medical professionals</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-teal-800 mb-3">Our Medical Services</h2>
+        <p class="text-sm sm:text-base text-gray-600">Comprehensive care by experienced and fully qualified medical professionals</p>
       </div>
       
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="card bg-teal-50 border border-teal-200 rounded-3xl p-6 text-center flex flex-col justify-between shadow-sm">
           <div>
-            <div class="text-5xl mb-4">🩺</div>
-            <h3 class="text-xl font-semibold text-teal-900 mb-3">General Consultation</h3>
-            <p class="text-gray-700 text-sm mb-4">Expert diagnosis and treatment for common and complex health issues.</p>
+            <div class="text-4xl sm:text-5xl mb-4">🩺</div>
+            <h3 class="text-lg sm:text-xl font-semibold text-teal-900 mb-3">General Consultation</h3>
+            <p class="text-gray-700 text-xs sm:text-sm mb-4">Expert diagnosis and treatment for common and complex health issues.</p>
           </div>
           <img src="images/consultation.jpg" alt="Doctor with client during consultation" class="w-full h-32 rounded-xl object-cover mt-2">
         </div>
 
         <div class="card bg-teal-50 border border-teal-200 rounded-3xl p-6 text-center flex flex-col justify-between shadow-sm">
           <div>
-            <div class="text-5xl mb-4">🦷</div>
-            <h3 class="text-xl font-semibold text-teal-900 mb-3">Dental Care</h3>
-            <p class="text-gray-700 text-sm mb-4">Professional dental services including cleaning and extractions.</p>
+            <div class="text-4xl sm:text-5xl mb-4">🦷</div>
+            <h3 class="text-lg sm:text-xl font-semibold text-teal-900 mb-3">Dental Care</h3>
+            <p class="text-gray-700 text-xs sm:text-sm mb-4">Professional dental services including cleaning and extractions.</p>
           </div>
           <img src="images/dental.webp" alt="Dental Care Scene" class="w-full h-32 rounded-xl object-cover mt-2">
         </div>
 
         <div class="card bg-teal-50 border border-teal-200 rounded-3xl p-6 text-center flex flex-col justify-between shadow-sm">
           <div>
-            <div class="text-5xl mb-4">🧪</div>
-            <h3 class="text-xl font-semibold text-teal-900 mb-3">Laboratory Tests</h3>
-            <p class="text-gray-700 text-sm mb-4">Fast and accurate lab investigations with modern equipment.</p>
+            <div class="text-4xl sm:text-5xl mb-4">🧪</div>
+            <h3 class="text-lg sm:text-xl font-semibold text-teal-900 mb-3">Laboratory Tests</h3>
+            <p class="text-gray-700 text-xs sm:text-sm mb-4">Fast and accurate lab investigations with modern equipment.</p>
           </div>
           <img src="images/lab test.png" alt="Laboratory Scene" class="w-full h-32 rounded-xl object-cover mt-2">
         </div>
 
         <div class="card bg-teal-50 border border-teal-200 rounded-3xl p-6 text-center flex flex-col justify-between shadow-sm">
           <div>
-            <div class="text-5xl mb-4">🤝</div>
-            <h3 class="text-xl font-semibold text-teal-900 mb-3">Community Health Insurance</h3>
-            <p class="text-gray-700 text-sm">We also offer a community insurance service where one pays a fee of <strong>UGX 2,000 per month</strong> and can come and get medical services at any time they feel unwell.</p>
+            <div class="text-4xl sm:text-5xl mb-4">🤝</div>
+            <h3 class="text-lg sm:text-xl font-semibold text-teal-900 mb-3">Community Health Insurance</h3>
+            <p class="text-gray-700 text-xs sm:text-sm">We offer a community insurance service where one pays <strong>UGX 2,000 per month</strong> to access medical care anytime.</p>
           </div>
           <a href="insurance.html" class="mt-4 inline-block bg-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider self-center hover:bg-teal-700 transition">For more details</a>
         </div>
 
         <div class="card bg-teal-50 border border-teal-200 rounded-3xl p-6 text-center flex flex-col justify-between shadow-sm">
           <div>
-            <div class="text-5xl mb-4">💉</div>
-            <h3 class="text-xl font-semibold text-teal-900 mb-3">Immunisation Services</h3>
-            <p class="text-gray-700 text-sm mb-4">Routine infant, child, and adult vaccines to secure immunity protection.</p>
+            <div class="text-4xl sm:text-5xl mb-4">💉</div>
+            <h3 class="text-lg sm:text-xl font-semibold text-teal-900 mb-3">Immunisation Services</h3>
+            <p class="text-gray-700 text-xs sm:text-sm mb-4">Routine infant, child, and adult vaccines to secure immunity protection.</p>
           </div>
           <img src="images/immunization.jpg" alt="Immunisation Services" class="w-full h-32 rounded-xl object-cover mt-2">
         </div>
 
         <div class="card bg-teal-50 border border-teal-200 rounded-3xl p-6 text-center flex flex-col justify-between shadow-sm">
           <div>
-            <div class="text-5xl mb-4">👶</div>
-            <h3 class="text-xl font-semibold text-teal-900 mb-3">Maternal & Child Health</h3>
-            <p class="text-gray-700 text-sm mb-4">Dedicated pediatric checking, childhood safety monitoring, and wellness care.</p>
+            <div class="text-4xl sm:text-5xl mb-4">👶</div>
+            <h3 class="text-lg sm:text-xl font-semibold text-teal-900 mb-3">Maternal & Child Health</h3>
+            <p class="text-gray-700 text-xs sm:text-sm mb-4">Dedicated pediatric checking, childhood safety monitoring, and wellness care.</p>
           </div>
           <img src="images/mmertanal.webp" alt="Maternal Child Health Services" class="w-full h-32 rounded-xl object-cover mt-2">
         </div>
 
         <div class="card bg-teal-50 border border-teal-200 rounded-3xl p-6 text-center flex flex-col justify-between shadow-sm">
           <div>
-            <div class="text-5xl mb-4">🤰</div>
-            <h3 class="text-xl font-semibold text-teal-900 mb-3">Antenatal & Maternity</h3>
-            <p class="text-gray-700 text-sm mb-4">Comprehensive pregnancy screening guides, checks, and maternal tracking updates.</p>
+            <div class="text-4xl sm:text-5xl mb-4">🤰</div>
+            <h3 class="text-lg sm:text-xl font-semibold text-teal-900 mb-3">Antenatal & Maternity</h3>
+            <p class="text-gray-700 text-xs sm:text-sm mb-4">Comprehensive pregnancy screening guides, checks, and maternal tracking updates.</p>
           </div>
           <img src="images/antenental care.webp" alt="Antenatal Care and Maternity Services" class="w-full h-32 rounded-xl object-cover mt-2">
         </div>
 
         <div class="card bg-teal-50 border border-teal-200 rounded-3xl p-6 text-center flex flex-col justify-between shadow-sm">
           <div>
-            <div class="text-5xl mb-4">⭐</div>
-            <h3 class="text-xl font-semibold text-teal-900 mb-3">Specialist Services</h3>
-            <p class="text-gray-700 text-sm mb-4">Advanced specialized medicine reviews, diagnostics, and targeted treatments.</p>
+            <div class="text-4xl sm:text-5xl mb-4">⭐</div>
+            <h3 class="text-lg sm:text-xl font-semibold text-teal-900 mb-3">Specialist Services</h3>
+            <p class="text-gray-700 text-xs sm:text-sm mb-4">Advanced specialized medicine reviews, diagnostics, and targeted treatments.</p>
           </div>
           <img src="images/specialist.png" alt="Specialist Services" class="w-full h-32 rounded-xl object-cover mt-2">
         </div>
@@ -267,17 +269,17 @@
   </section>
 
   <!-- Online Consultation Section -->
-  <section id="online" class="py-20 bg-teal-50">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <div class="bg-white rounded-3xl p-12 shadow">
-        <h2 class="text-4xl font-bold text-teal-800 mb-4">Online Medical Consultation</h2>
-        <p class="text-xl text-gray-600 mb-8">Consult with our qualified doctors from the comfort of your home via WhatsApp video/voice call.</p>
+  <section id="online" class="py-16 sm:py-20 bg-teal-50 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-teal-100">
+        <h2 class="text-3xl sm:text-4xl font-bold text-teal-800 mb-4">Online Medical Consultation</h2>
+        <p class="text-base sm:text-xl text-gray-600 mb-6">Consult with our qualified doctors from the comfort of your home via WhatsApp video/voice call.</p>
         
-        <div class="text-6xl font-bold text-teal-700 mb-2">Free Online Consultation</div>
-        <p class="text-gray-600 text-xl mb-10">With Specialist doctors.</p>
+        <div class="text-4xl sm:text-6xl font-bold text-teal-700 mb-2">Free Online Consultation</div>
+        <p class="text-gray-600 text-lg sm:text-xl mb-8">With Specialist doctors.</p>
         
-        <a href="https://wa.me/256782543038" target="_blank" class="inline-flex items-center gap-3 bg-teal-600 hover:bg-teal-700 text-white text-xl font-semibold px-12 py-6 rounded-2xl">
-          <i class="fab fa-whatsapp text-4xl"></i>
+        <a href="https://wa.me/256782543038" target="_blank" class="inline-flex items-center gap-3 bg-teal-600 hover:bg-teal-700 text-white text-lg sm:text-xl font-semibold px-8 sm:px-12 py-4 sm:py-6 rounded-2xl transition shadow-md">
+          <i class="fab fa-whatsapp text-3xl sm:text-4xl"></i>
           Book Now via WhatsApp
         </a>
       </div>
@@ -285,43 +287,43 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-teal-900 text-white">
-    <div class="max-w-4xl mx-auto px-6">
+  <section id="contact" class="py-16 sm:py-20 bg-teal-900 text-white px-4">
+    <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold">Get In Touch</h2>
-        <p class="text-teal-200 mt-3">24/7 Emergency & General Care Available</p>
+        <h2 class="text-3xl sm:text-4xl font-bold">Get In Touch</h2>
+        <p class="text-teal-200 mt-3 text-sm sm:text-base">24/7 Emergency & General Care Available</p>
       </div>
       <div class="grid md:grid-cols-2 gap-10">
-        <div class="space-y-8">
+        <div class="space-y-6 sm:space-y-8">
           <div class="flex gap-4">
-            <i class="fas fa-phone text-3xl text-teal-400 mt-1"></i>
+            <i class="fas fa-phone text-2xl sm:text-3xl text-teal-400 mt-1"></i>
             <div>
-              <p class="font-medium text-lg">+256 782 543 038 / +256 756 667 628</p>
-              <p class="text-teal-300">Call or WhatsApp</p>
+              <p class="font-medium text-base sm:text-lg">+256 782 543 038 / +256 756 667 628</p>
+              <p class="text-teal-300 text-xs sm:text-sm">Call or WhatsApp</p>
             </div>
           </div>
           <div class="flex gap-4">
-            <i class="fas fa-envelope text-3xl text-teal-400 mt-1"></i>
+            <i class="fas fa-envelope text-2xl sm:text-3xl text-teal-400 mt-1"></i>
             <div>
-              <a href="mailto:lifesvng@gmail.com" class="inline-block font-medium text-lg text-white hover:text-teal-400 hover:underline transition-all duration-300 hover:scale-105">lifesvng@gmail.com</a>
+              <a href="mailto:lifesvng@gmail.com" class="inline-block font-medium text-base sm:text-lg text-white hover:text-teal-400 hover:underline transition">lifesvng@gmail.com</a>
             </div>
           </div>
           <div class="flex gap-4">
-            <i class="fas fa-map-marker-alt text-3xl text-teal-400 mt-1"></i>
+            <i class="fas fa-map-marker-alt text-2xl sm:text-3xl text-teal-400 mt-1"></i>
             <div>
-              <p class="font-medium text-lg">Kisimbiri Central Kassengeje Rd,</p>
-              <p class="text-teal-300 mb-3">Wakiso Town Council, Wakiso District (U)</p>
+              <p class="font-medium text-base sm:text-lg">Kisimbiri Central Kassengeje Rd,</p>
+              <p class="text-teal-300 mb-3 text-xs sm:text-sm">Wakiso Town Council, Wakiso District (U)</p>
               
-              <a href="https://maps.app.goo.gl/6X6EkQmKwfQCtRVV7?g_st=aw" target="_blank" class="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-400 text-teal-950 font-bold px-4 py-2 rounded-xl text-sm transition-all shadow">
-                <i class="fas fa-map-marked-alt text-lg"></i>
+              <a href="https://maps.app.goo.gl/6X6EkQmKwfQCtRVV7?g_st=aw" target="_blank" class="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-400 text-teal-950 font-bold px-4 py-2 rounded-xl text-xs sm:text-sm transition shadow">
+                <i class="fas fa-map-marked-alt text-base sm:text-lg"></i>
                 View Location on Google Maps
               </a>
             </div>
           </div>
         </div>
         <div>
-          <p class="text-lg mb-6">We have a team of fully qualified doctors and nurses ready to serve you 24/7.</p>
-          <a href="https://wa.me/256782543038" target="_blank" class="block text-center bg-white text-teal-700 font-semibold py-4 rounded-2xl hover:bg-green-500 hover:text-white hover:shadow-lg transition-all duration-300">
+          <p class="text-base sm:text-lg mb-6">We have a team of fully qualified doctors and nurses ready to serve you 24/7.</p>
+          <a href="https://wa.me/256782543038" target="_blank" class="block text-center bg-white text-teal-700 font-semibold py-4 rounded-2xl hover:bg-green-500 hover:text-white hover:shadow-lg transition-all text-sm sm:text-base">
             Message us on WhatsApp
           </a>
         </div>
@@ -330,30 +332,30 @@
   </section>
 
   <!-- Quick Links Section -->
-  <section class="bg-teal-950 text-white py-12 border-t border-teal-900">
-    <div class="max-w-7xl mx-auto px-6">
-      <h3 class="text-xl font-bold text-teal-400 uppercase tracking-wider mb-6 pb-2 border-b border-teal-900">Quick Links</h3>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-sm font-medium">
-        <a href="index.html#home" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Home</a>
-        <a href="about.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> About Us</a>
-        <a href="index.html#services" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Services</a>
-        <a href="insurance.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Insurance Programme</a>
-        <a href="blog.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Blog</a>
-        <a href="donate.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Donate</a>
-        <a href="index.html#online" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Online Consultation</a>
-        <a href="index.html#contact" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Contact</a>
+  <section class="bg-teal-950 text-white py-12 border-t border-teal-900 px-4">
+    <div class="max-w-7xl mx-auto">
+      <h3 class="text-lg sm:text-xl font-bold text-teal-400 uppercase tracking-wider mb-6 pb-2 border-b border-teal-900">Quick Links</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-xs sm:text-sm font-medium">
+        <a href="index.html#home" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Home</a>
+        <a href="about.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> About Us</a>
+        <a href="index.html#services" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Services</a>
+        <a href="insurance.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Insurance Programme</a>
+        <a href="blog.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Blog</a>
+        <a href="donate.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Donate</a>
+        <a href="index.html#online" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Online Consultation</a>
+        <a href="index.html#contact" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Contact</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-950 text-white py-6 text-center text-xs">
+  <footer class="bg-gray-950 text-white py-6 text-center text-xs px-4">
     <p>&copy; 2026 Life Saving Medical Center / Lifesaving Health Care Foundation (LHCF). All rights reserved.</p>
   </footer>
 
-  <!-- Back to Top Floating Arrow Button (Middle of Right-Hand Side) -->
-  <a href="#home" id="backToTop" class="fixed right-4 top-1/2 -translate-y-1/2 z-40 bg-teal-600 hover:bg-teal-700 text-white w-10 h-10 rounded-full shadow-lg flex items-center justify-center transition-all duration-300">
-    <i class="fas fa-arrow-up text-sm"></i>
+  <!-- Back to Top Floating Arrow Button -->
+  <a href="#home" id="backToTop" class="fixed right-4 top-1/2 -translate-y-1/2 z-40 bg-teal-600 hover:bg-teal-700 text-white w-9 h-9 sm:w-10 sm:h-10 rounded-full shadow-lg flex items-center justify-center transition-all duration-300">
+    <i class="fas fa-arrow-up text-xs sm:text-sm"></i>
   </a>
 
   <!-- Interactive Scripts -->
