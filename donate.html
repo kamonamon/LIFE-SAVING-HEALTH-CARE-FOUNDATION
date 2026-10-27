@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="overflow-x-hidden">
+<html lang="en" class="overflow-x-hidden scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,40 +26,56 @@
       right: 0;
       visibility: visible;
     }
+
+    /* Back to Top Floating Button Style */
+    #backToTop {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    }
+    #backToTop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    #backToTop:hover {
+      transform: translateY(-3px);
+    }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden w-full">
 
-  <!-- Active Marquee Ticker Link to blog.html -->
+  <!-- Working Moving Marquee Ticker Link -->
   <a href="blog.html" class="block bg-rose-600 hover:bg-rose-700 text-white py-2.5 px-3 sm:px-4 text-xs md:text-sm font-semibold shadow-inner transition overflow-hidden">
-    <div class="max-w-7xl mx-auto flex items-center justify-between overflow-hidden">
-      <div class="flex items-center gap-3 overflow-hidden">
-        <span class="bg-white text-rose-700 px-2 py-0.5 rounded-full text-[10px] sm:text-xs uppercase font-extrabold shrink-0">Upcoming Event</span>
-        <span class="truncate">🏥 FREE HEALTH CAMP AT LIFE SAVING MEDICAL CENTER! Ending on Nov 29th — Tap here to check our blog & details!</span>
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3 overflow-hidden w-full">
+        <span class="bg-white text-rose-700 px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs uppercase font-extrabold shrink-0">Upcoming Event</span>
+        <marquee behavior="scroll" direction="left" scrollamount="5" class="text-xs sm:text-sm font-medium tracking-wide" onmouseover="this.stop();" onmouseout="this.start();">
+          🏥 FREE HEALTH CAMP AT LIFE SAVING MEDICAL CENTER! Ending on November 28th — Tap here to check our blog & details!
+        </marquee>
       </div>
-      <div class="hidden md:flex items-center gap-2 pl-4 border-l border-rose-400/50 whitespace-nowrap shrink-0">
+      <div class="hidden md:flex items-center gap-2 pl-4 border-l border-rose-400/50 whitespace-nowrap shrink-0 text-xs">
         <i class="fas fa-clock"></i>
         <span id="marqueeTimer">Calculating...</span>
       </div>
     </div>
   </a>
 
-  <!-- Navigation Bar (Sticky so it stays visible as you scroll) -->
+  <!-- Navigation Bar (Sticky top-0) -->
   <nav class="bg-white/95 backdrop-blur-md shadow sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-3 md:px-6 py-3 flex justify-between items-center">
-      <a href="index.html" class="flex items-center gap-3">
-        <div class="w-11 h-11 bg-teal-700 rounded-full flex items-center justify-center overflow-hidden shrink-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-2 sm:gap-3">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 bg-teal-700 rounded-full flex items-center justify-center overflow-hidden shrink-0">
           <img src="life logo.jpg" alt="LSMC Logo" class="w-full h-full object-cover">
         </div>
         <div>
-          <h1 class="text-lg md:text-xl font-bold text-teal-700 leading-none">Life Saving</h1>
-          <p class="text-xs text-gray-600">Medical Center</p>
+          <h1 class="text-base sm:text-lg md:text-xl font-bold text-teal-700 leading-none">LIFE SAVING</h1>
+          <p class="text-[10px] sm:text-xs text-gray-800 font-medium">HEALTH CARE FOUNDATION</p>
         </div>
       </a>
 
       <div class="hidden lg:flex items-center gap-4 xl:gap-6 font-medium text-sm">
         <a href="index.html" class="hover:text-teal-700 transition-colors">Home</a>
-        <a href="index.html#about" class="hover:text-teal-700 transition-colors">About Us</a>
+        <a href="about.html" class="hover:text-teal-700 transition-colors">About Us</a>
         <a href="index.html#services" class="hover:text-teal-700 transition-colors">Services</a>
         <a href="insurance.html" class="hover:text-teal-700 transition-colors">Insurance Programme</a>
         <a href="blog.html" class="hover:text-teal-700 transition-colors">Blog</a>
@@ -68,18 +84,18 @@
         <a href="index.html#contact" class="hover:text-teal-700 transition-colors">Contact</a>
       </div>
 
-      <div class="flex items-center gap-3">
-        <a href="https://wa.me/256782543038" target="_blank" class="bg-teal-600/90 backdrop-blur-md hover:bg-teal-700 text-white px-4 py-2.5 rounded-full flex items-center gap-2 text-xs md:text-sm font-medium transition shadow-md">
-          <i class="fab fa-whatsapp text-lg"></i>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="https://wa.me/256782543038" target="_blank" class="bg-teal-600/90 backdrop-blur-md hover:bg-teal-700 text-white px-3 sm:px-4 py-2 rounded-full flex items-center gap-2 text-xs sm:text-sm font-medium transition shadow-md">
+          <i class="fab fa-whatsapp text-base sm:text-lg"></i>
           <span class="hidden sm:inline">WhatsApp Us</span>
         </a>
-        <button onclick="toggleMobileMenu()" class="lg:hidden text-teal-700 text-2xl p-2 focus:outline-none">
+        <button onclick="toggleMobileMenu()" class="lg:hidden text-teal-700 text-xl sm:text-2xl p-2 focus:outline-none">
           <i id="menuIcon" class="fas fa-bars"></i>
         </button>
       </div>
     </div>
 
-    <!-- Right-Hand Side Semi-Transparent Mobile Menu Drawer -->
+    <!-- Right-Hand Side Mobile Menu Drawer -->
     <div id="mobileMenu" class="lg:hidden bg-white/95 backdrop-blur-xl border-l shadow-2xl p-6 flex flex-col justify-between">
       <div>
         <div class="flex justify-between items-center mb-8 pb-4 border-b">
@@ -88,7 +104,7 @@
         </div>
         <div class="flex flex-col gap-4 font-medium text-gray-700 text-base">
           <a href="index.html" onclick="toggleMobileMenu()" class="hover:text-teal-700">Home</a>
-          <a href="index.html#about" onclick="toggleMobileMenu()" class="hover:text-teal-700">About Us</a>
+          <a href="about.html" onclick="toggleMobileMenu()" class="hover:text-teal-700">About Us</a>
           <a href="index.html#services" onclick="toggleMobileMenu()" class="hover:text-teal-700">Services</a>
           <a href="insurance.html" onclick="toggleMobileMenu()" class="hover:text-teal-700">Insurance Programme</a>
           <a href="blog.html" onclick="toggleMobileMenu()" class="hover:text-teal-700">Blog</a>
@@ -104,49 +120,49 @@
   </nav>
 
   <!-- Support Header -->
-  <section class="bg-teal-900 text-white py-16">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Support Our Life-Saving Mission</h1>
-      <p class="text-teal-200 text-lg">Your support helps subsidize medical care, expand free community outreach, and equip our emergency units for families in Wakiso.</p>
+  <section class="bg-teal-900 text-white py-12 sm:py-16 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Support Our Life-Saving Mission</h1>
+      <p class="text-teal-200 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">Your support helps subsidize medical care, expand free community outreach, and equip our emergency units for families in Wakiso.</p>
     </div>
   </section>
 
   <!-- Donation Options -->
-  <section class="py-16">
-    <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-8">
-      <div class="bg-white p-8 rounded-3xl shadow-sm border border-teal-100 flex flex-col justify-between">
+  <section class="py-12 sm:py-16 px-4">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 sm:gap-8">
+      <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-teal-100 flex flex-col justify-between">
         <div>
           <div class="w-12 h-12 bg-teal-100 rounded-2xl text-teal-700 flex items-center justify-center text-2xl mb-4">
             <i class="fas fa-mobile-alt"></i>
           </div>
-          <h2 class="text-2xl font-bold text-gray-900 mb-2">Mobile Money Donation</h2>
-          <p class="text-gray-600 text-sm mb-6">Direct, safe, and instant contributions supporting local medical aid.</p>
+          <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Mobile Money Donation</h2>
+          <p class="text-gray-600 text-xs sm:text-sm mb-6">Direct, safe, and instant contributions supporting local medical aid.</p>
           
           <div class="space-y-4 bg-teal-50 p-4 rounded-2xl border border-teal-100">
             <div>
-              <p class="text-xs text-teal-600 font-bold uppercase">Airtel / MTN Mobile Money</p>
-              <p class="text-xl font-bold text-teal-900">0782543038</p>
-              <p class="text-xs text-gray-500">Account Name: Life Saving Medical Center</p>
+              <p class="text-[10px] sm:text-xs text-teal-600 font-bold uppercase">Airtel / MTN Mobile Money</p>
+              <p class="text-lg sm:text-xl font-bold text-teal-900">0782543038</p>
+              <p class="text-[10px] sm:text-xs text-gray-500">Account Name: Life Saving Medical Center</p>
             </div>
           </div>
         </div>
 
         <div class="mt-8">
-          <a href="https://wa.me/256782543038?text=Hello,%20I%20have%20made%20a%20donation%20via%20Mobile%20Money" target="_blank" class="block text-center bg-teal-700 hover:bg-teal-800 text-white font-semibold py-3 rounded-xl transition">
+          <a href="https://wa.me/256782543038?text=Hello,%20I%20have%20made%20a%20donation%20via%20Mobile%20Money" target="_blank" class="block text-center bg-teal-700 hover:bg-teal-800 text-white font-semibold py-3 px-4 rounded-xl text-xs sm:text-sm transition">
             Confirm Donation via WhatsApp
           </a>
         </div>
       </div>
 
-      <div class="bg-white p-8 rounded-3xl shadow-sm border border-teal-100 flex flex-col justify-between">
+      <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-teal-100 flex flex-col justify-between">
         <div>
           <div class="w-12 h-12 bg-teal-100 rounded-2xl text-teal-700 flex items-center justify-center text-2xl mb-4">
             <i class="fas fa-hand-holding-heart"></i>
           </div>
-          <h2 class="text-2xl font-bold text-gray-900 mb-2">Equipment & Medical Supplies</h2>
-          <p class="text-gray-600 text-sm mb-6">We also welcome direct donations of medical equipment, vaccines, sanitation gear, and essential facility supplies.</p>
+          <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Equipment & Medical Supplies</h2>
+          <p class="text-gray-600 text-xs sm:text-sm mb-6">We also welcome direct donations of medical equipment, vaccines, sanitation gear, and essential facility supplies.</p>
           
-          <ul class="space-y-2 text-sm text-gray-700">
+          <ul class="space-y-2 text-xs sm:text-sm text-gray-700">
             <li class="flex items-center gap-2"><i class="fas fa-check text-teal-600"></i> Clinical Diagnostic Kits</li>
             <li class="flex items-center gap-2"><i class="fas fa-check text-teal-600"></i> Maternal & Newborn Care Packs</li>
             <li class="flex items-center gap-2"><i class="fas fa-check text-teal-600"></i> Community Sanitation Equipment</li>
@@ -154,7 +170,7 @@
         </div>
 
         <div class="mt-8">
-          <a href="mailto:lifesvng@gmail.com?subject=In-Kind%20Donation%20Inquiry" class="block text-center bg-gray-900 hover:bg-black text-white font-semibold py-3 rounded-xl transition">
+          <a href="mailto:lifesvng@gmail.com?subject=In-Kind%20Donation%20Inquiry" class="block text-center bg-gray-900 hover:bg-black text-white font-semibold py-3 px-4 rounded-xl text-xs sm:text-sm transition">
             Contact Us via Email
           </a>
         </div>
@@ -162,28 +178,34 @@
     </div>
   </section>
 
-  <!-- Quick Links Section Structured at the Bottom -->
-  <section class="bg-teal-950 text-white py-12 border-t border-teal-900">
-    <div class="max-w-7xl mx-auto px-6">
-      <h3 class="text-xl font-bold text-teal-400 uppercase tracking-wider mb-6 pb-2 border-b border-teal-900">Quick Links</h3>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-sm font-medium">
-        <a href="index.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Home</a>
-        <a href="index.html#about" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> About Us</a>
-        <a href="index.html#services" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Services</a>
-        <a href="insurance.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Insurance Programme</a>
-        <a href="blog.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Blog</a>
-        <a href="donate.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Donate</a>
-        <a href="index.html#online" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Online Consultation</a>
-        <a href="index.html#contact" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-teal-500"></i> Contact</a>
+  <!-- Quick Links Section -->
+  <section class="bg-teal-950 text-white py-12 border-t border-teal-900 px-4">
+    <div class="max-w-7xl mx-auto">
+      <h3 class="text-lg sm:text-xl font-bold text-teal-400 uppercase tracking-wider mb-6 pb-2 border-b border-teal-900">Quick Links</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-xs sm:text-sm font-medium">
+        <a href="index.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Home</a>
+        <a href="about.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> About Us</a>
+        <a href="index.html#services" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Services</a>
+        <a href="insurance.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Insurance Programme</a>
+        <a href="blog.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Blog</a>
+        <a href="donate.html" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Donate</a>
+        <a href="index.html#online" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Online Consultation</a>
+        <a href="index.html#contact" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-teal-500"></i> Contact</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-950 text-white py-6 text-center text-xs">
+  <footer class="bg-gray-950 text-white py-6 text-center text-xs px-4">
     <p>&copy; 2026 Life Saving Medical Center. All rights reserved.</p>
   </footer>
 
+  <!-- Back to Top Floating Arrow Button -->
+  <a href="#" id="backToTop" class="fixed right-4 top-1/2 -translate-y-1/2 z-40 bg-teal-600 hover:bg-teal-700 text-white w-9 h-9 sm:w-10 sm:h-10 rounded-full shadow-lg flex items-center justify-center transition-all duration-300">
+    <i class="fas fa-arrow-up text-xs sm:text-sm"></i>
+  </a>
+
+  <!-- Interactive Scripts -->
   <script>
     function toggleMobileMenu() {
       const menu = document.getElementById('mobileMenu');
@@ -192,6 +214,16 @@
       icon.classList.toggle('fa-bars');
       icon.classList.toggle('fa-times');
     }
+
+    // Show/Hide Back to Top Button on scroll
+    window.addEventListener('scroll', function() {
+      const backToTopBtn = document.getElementById('backToTop');
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
 
     function updateCountdown() {
       const targetDate = new Date("November 28, 2026 23:59:59").getTime();
