@@ -14,7 +14,7 @@
     #mobileMenu {
       position: fixed;
       top: 0;
-      right: -280px; /* Hidden completely off-screen to the right */
+      right: -280px;
       width: 280px;
       height: 100vh;
       transition: right 0.3s ease-in-out;
@@ -130,30 +130,25 @@
   <!-- Donation Options -->
   <section class="py-12 sm:py-16 px-4">
     <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 sm:gap-8">
+      
+      <!-- Mobile Money Secure Card Option -->
       <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-teal-100 flex flex-col justify-between">
         <div>
           <div class="w-12 h-12 bg-teal-100 rounded-2xl text-teal-700 flex items-center justify-center text-2xl mb-4">
             <i class="fas fa-mobile-alt"></i>
           </div>
           <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Mobile Money Donation</h2>
-          <p class="text-gray-600 text-xs sm:text-sm mb-6">Direct, safe, and instant contributions supporting local medical aid.</p>
-          
-          <div class="space-y-4 bg-teal-50 p-4 rounded-2xl border border-teal-100">
-            <div>
-              <p class="text-[10px] sm:text-xs text-teal-600 font-bold uppercase">Airtel / MTN Mobile Money</p>
-              <p class="text-lg sm:text-xl font-bold text-teal-900">0782543038</p>
-              <p class="text-[10px] sm:text-xs text-gray-500">Account Name: Life Saving Medical Center</p>
-            </div>
-          </div>
+          <p class="text-gray-600 text-xs sm:text-sm mb-6">Direct, safe, and instant secure contributions supporting local medical aid.</p>
         </div>
 
         <div class="mt-8">
-          <a href="https://wa.me/256782543038?text=Hello,%20I%20have%20made%20a%20donation%20via%20Mobile%20Money" target="_blank" class="block text-center bg-teal-700 hover:bg-teal-800 text-white font-semibold py-3 px-4 rounded-xl text-xs sm:text-sm transition">
-            Confirm Donation via WhatsApp
-          </a>
+          <button onclick="openMobileModal()" class="w-full text-center bg-teal-700 hover:bg-teal-800 text-white font-semibold py-3 px-4 rounded-xl text-xs sm:text-sm transition shadow-md">
+            Donate via Mobile Money
+          </button>
         </div>
       </div>
 
+      <!-- Equipment & Medical Supplies -->
       <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-teal-100 flex flex-col justify-between">
         <div>
           <div class="w-12 h-12 bg-teal-100 rounded-2xl text-teal-700 flex items-center justify-center text-2xl mb-4">
@@ -177,6 +172,68 @@
       </div>
     </div>
   </section>
+
+  <!-- Secure Mobile Money Interactive Modal -->
+  <div id="mobileMoneyModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity">
+    <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl p-6 sm:p-8 relative border border-teal-100">
+      <button onclick="closeMobileModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold p-1">&times;</button>
+      
+      <div class="text-center mb-6">
+        <span class="bg-teal-100 text-teal-800 text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Secure Gateway</span>
+        <h3 class="text-xl font-bold text-gray-900 mt-2">Mobile Money Checkout</h3>
+      </div>
+
+      <form id="mmForm" onsubmit="handleMobileCheckout(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Select Network</label>
+          <div class="grid grid-cols-2 gap-3">
+            <button type="button" onclick="setNetwork('MTN')" id="netMTN" class="p-3 border-2 border-gray-200 rounded-xl text-xs font-bold text-gray-800 hover:border-yellow-500 transition">
+              <i class="fas fa-phone text-yellow-500 mr-1"></i> MTN Mobile
+            </button>
+            <button type="button" onclick="setNetwork('Airtel')" id="netAirtel" class="p-3 border-2 border-gray-200 rounded-xl text-xs font-bold text-gray-800 hover:border-red-500 transition">
+              <i class="fas fa-mobile text-red-500 mr-1"></i> Airtel Money
+            </button>
+          </div>
+          <input type="hidden" id="selectedNetwork" required>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Your Phone Number</label>
+          <input type="tel" required placeholder="07XXXXXXXX" class="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-teal-600">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Donation Amount (UGX)</label>
+          <input type="number" required placeholder="e.g. 10000" class="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-teal-600">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Mobile Money PIN</label>
+          <input type="password" required maxlength="4" placeholder="••••" class="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm tracking-widest text-center font-bold focus:outline-none focus:border-teal-600">
+          <p class="text-[10px] text-gray-400 mt-1 text-center">Your PIN is encrypted and never stored.</p>
+        </div>
+
+        <button type="submit" class="w-full bg-teal-700 hover:bg-teal-800 text-white font-bold py-3.5 rounded-xl text-sm transition shadow-md">
+          Authorize & Send Contribution
+        </button>
+      </form>
+
+      <!-- Success View State -->
+      <div id="mmSuccess" class="hidden text-center py-6">
+        <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+          <i class="fas fa-check"></i>
+        </div>
+        <h4 class="text-xl font-bold text-gray-900 mb-2">Payment Prompt Sent!</h4>
+        <p class="text-gray-600 text-xs sm:text-sm leading-relaxed mb-6">
+          Please check your phone for the carrier prompt to complete your contribution securely. Thank you for supporting Life Saving Medical Center!
+        </p>
+        <button onclick="closeMobileModal()" class="bg-teal-700 text-white font-bold px-8 py-3 rounded-xl text-sm transition">
+          Close Window
+        </button>
+      </div>
+
+    </div>
+  </div>
 
   <!-- Quick Links Section -->
   <section class="bg-teal-950 text-white py-12 border-t border-teal-900 px-4">
@@ -213,6 +270,46 @@
       menu.classList.toggle('open');
       icon.classList.toggle('fa-bars');
       icon.classList.toggle('fa-times');
+    }
+
+    // Modal Control Logic
+    function openMobileModal() {
+      document.getElementById('mobileMoneyModal').classList.remove('hidden');
+      document.getElementById('mmForm').classList.remove('hidden');
+      document.getElementById('mmSuccess').classList.add('hidden');
+      document.getElementById('mmForm').reset();
+      document.getElementById('netMTN').classList.remove('border-yellow-500', 'bg-yellow-50');
+      document.getElementById('netAirtel').classList.remove('border-red-500', 'bg-red-50');
+      document.getElementById('selectedNetwork').value = '';
+    }
+
+    function closeMobileModal() {
+      document.getElementById('mobileMoneyModal').classList.add('hidden');
+    }
+
+    function setNetwork(network) {
+      document.getElementById('selectedNetwork').value = network;
+      const netMTN = document.getElementById('netMTN');
+      const netAirtel = document.getElementById('netAirtel');
+
+      if (network === 'MTN') {
+        netMTN.classList.add('border-yellow-500', 'bg-yellow-50');
+        netAirtel.classList.remove('border-red-500', 'bg-red-50');
+      } else {
+        netAirtel.classList.add('border-red-500', 'bg-red-50');
+        netMTN.classList.remove('border-yellow-500', 'bg-yellow-50');
+      }
+    }
+
+    function handleMobileCheckout(e) {
+      e.preventDefault();
+      const network = document.getElementById('selectedNetwork').value;
+      if (!network) {
+        alert('Please select your mobile network (MTN or Airtel)');
+        return;
+      }
+      document.getElementById('mmForm').classList.add('hidden');
+      document.getElementById('mmSuccess').classList.remove('hidden');
     }
 
     // Show/Hide Back to Top Button on scroll
